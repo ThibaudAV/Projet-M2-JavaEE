@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale.language}" scope="session" />
 
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="com.blog.i18n.langue" />7
@@ -19,13 +19,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog - Business Casual - Start Bootstrap Theme</title>
+    <title>Blog - ${language}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${pageContext.request.contextPath}/static/css/business-casual.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/css/style.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -77,12 +78,10 @@
                     <li class="dropdown">
           				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 			          ${language == 'en' ? 'English' : ''}
-			          ${language == 'fr' ? 'Francais' : ''}
-			          ${language == 'es' ? 'Español' : ''} <span class="caret"></span></a>
+			          ${language == 'fr' ? 'Francais' : ''} <span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
 			            <li><a href="?language=en">English</a></li>
 			            <li><a href="?language=fr">Francais</a></li>
-			            <li><a href="?language=es">Español</a></li>
 			          </ul>
 			        </li>
                     <li>
