@@ -17,7 +17,7 @@
 <html lang="${language}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here 2</title>
+<title>Insert title here 1</title>
 </head>
 <body>
 	<form>
