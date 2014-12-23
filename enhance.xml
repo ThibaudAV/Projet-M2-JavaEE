@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="IC2A_M2_MyNews">
+	
+	<!-- add classes and the libraries to the enhancement classpath -->
+	<path id="enhance.cp">
+			<pathelement location="build/classes"/>
+	        <fileset dir="WebContent/WEB-INF/lib">
+	            <include name="**/*.jar"/>
+	        </fileset>
+	</path>
+	
+	<property name="cp" refid="enhance.cp"/>
+		
+	<!-- describe the enhance target -->
+	<target name="enhance">
+		<taskdef name="openjpac" classname="org.apache.openjpa.ant.PCEnhancerTask">
+			<classpath refid="enhance.cp"/>
+		</taskdef>
+		<!-- invoke enhancer on all .class files -->
+		<openjpac>
+			<classpath refid="enhance.cp"/>
+			<config propertiesFile="src/META-INF/persistence.xml"/>
+		</openjpac>
+	</target>
+	
+</project>
