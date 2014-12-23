@@ -1,0 +1,12 @@
+
+.nav.onglet {
+	background: rgba(255,255,255,0.9);
+}
+.nav.onglet>li>a {
+	padding: 10px 15px;
+}
+
+.dropdown-menu {
+    min-width:auto;
+  width:100%;
+}
