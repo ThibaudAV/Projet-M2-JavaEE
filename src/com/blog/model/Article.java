@@ -18,17 +18,26 @@ public class Article {
 	
 	private String corps;
 	
-	private String categorie;
+	private int categorie;
 	
 	private String image;
 	
-	private String auteur;
+	private int auteur;
 	
 	private Date date_creation;
 	
 	
 	public Article(){
 		super();
+	}
+	
+	public Article(String t, String co ,int cat ,String img, int aut, Date dc){
+		titre = t;
+		corps = co;
+		categorie = cat;
+		image = img;
+		auteur = aut;
+		date_creation = dc;
 	}
 	
 	public int getId(){
@@ -55,11 +64,11 @@ public class Article {
 		corps = newCorps;
 	}
 	
-	public String getCategorie(){
+	public int getCategorie(){
 		return categorie;
 	}
 	
-	public void setCategorie(String newCategorie){
+	public void setCategorie(int newCategorie){
 		categorie = newCategorie;
 	}
 	
@@ -71,11 +80,11 @@ public class Article {
 		image = newImage;
 	}
 	
-	public String getAuteur(){
+	public int getAuteur(){
 		return auteur;
 	}
 	
-	public void setAuteur(String newAuteur){
+	public void setAuteur(int newAuteur){
 		auteur = newAuteur;
 	}
 	
