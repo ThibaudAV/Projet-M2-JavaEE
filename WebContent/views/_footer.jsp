@@ -11,12 +11,6 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="${pageContext.request.contextPath}/static/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

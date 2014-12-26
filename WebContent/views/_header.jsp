@@ -6,7 +6,7 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale.language}" scope="session" />
 
 <fmt:setLocale value="${language}" />
-<fmt:setBundle basename="com.blog.i18n.langue" />7
+<fmt:setBundle basename="com.blog.i18n.langue" />
 
 <!DOCTYPE html>
 <html lang="${language}">
@@ -38,6 +38,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- jQuery -->
+    <script src="${pageContext.request.contextPath}/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -85,7 +91,7 @@
 			          </ul>
 			        </li>
                     <li>
-                    
+                        <a href="<c:url value="/Inscription"/>">S'enregistrer </a>
                     </li>
                 </ul>
             </div>
