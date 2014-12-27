@@ -2,10 +2,12 @@ package com.blog.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Article {
@@ -14,15 +16,22 @@ public class Article {
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private int id;
 	
+	@Column(length=100)
 	private String titre;
 	
+	@Column(length=65535)
 	private String corps;
 	
-	private int categorie;
+	@ManyToOne
+	@Column( name = "categorie" )
+	private Categorie categorie;
 	
+	@Column(length=100)
 	private String image;
 	
-	private int auteur;
+	@ManyToOne
+	@Column( name = "auteur" )
+	private Utilisateur auteur;
 	
 	private Date date_creation;
 	
@@ -31,7 +40,7 @@ public class Article {
 		super();
 	}
 	
-	public Article(String t, String co ,int cat ,String img, int aut, Date dc){
+	public Article(String t, String co ,Categorie cat ,String img, Utilisateur aut, Date dc){
 		titre = t;
 		corps = co;
 		categorie = cat;
@@ -64,11 +73,11 @@ public class Article {
 		corps = newCorps;
 	}
 	
-	public int getCategorie(){
+	public Categorie getCategorie(){
 		return categorie;
 	}
 	
-	public void setCategorie(int newCategorie){
+	public void setCategorie(Categorie newCategorie){
 		categorie = newCategorie;
 	}
 	
@@ -80,11 +89,11 @@ public class Article {
 		image = newImage;
 	}
 	
-	public int getAuteur(){
+	public Utilisateur getAuteur(){
 		return auteur;
 	}
 	
-	public void setAuteur(int newAuteur){
+	public void setAuteur(Utilisateur newAuteur){
 		auteur = newAuteur;
 	}
 	
