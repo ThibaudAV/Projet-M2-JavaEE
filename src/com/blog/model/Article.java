@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@javax.persistence.Table(name="article")
 public class Article {
 	
 	@Id
@@ -17,6 +18,8 @@ public class Article {
 	private String titre;
 	
 	private String corps;
+
+	private String toto;
 	
 	private int categorie;
 	
@@ -94,6 +97,14 @@ public class Article {
 	
 	public void setDateCreation(Date newDateCreation){
 		date_creation = newDateCreation;
+	}
+
+	public String getToto() {
+		return toto;
+	}
+
+	public void setToto(String toto) {
+		this.toto = toto;
 	}
 
 }
