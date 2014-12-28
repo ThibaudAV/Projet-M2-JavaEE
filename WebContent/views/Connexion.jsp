@@ -62,9 +62,16 @@
             <h1 class="text-center">Sign in</h1>
                 <img class="img-circle center-block" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt="">
-                <form class="form-signin">
-                <input type="text" class="form-control" placeholder="Email" required autofocus>
-                <input type="password" class="form-control" placeholder="Password" required>
+                <form class="form-signin" role="form" method="post" action="<c:url value="/Connexion"/>">
+                <c:if test="${requestScope['error']}">
+	                <div class="alert alert-danger alert-dismissible" role="alert">
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  <strong>Oh snap!</strong> <c:out value="${requestScope['error']}"/>
+					</div>
+				</c:if>
+                
+                <input name="pseudoUser" type="text" class="form-control" placeholder="Email" required autofocus>
+                <input name="password" type="password" class="form-control" placeholder="Password" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in</button>
                 <label class="checkbox pull-left">

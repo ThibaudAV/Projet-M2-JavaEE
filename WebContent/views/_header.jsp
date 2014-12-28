@@ -91,7 +91,16 @@
 			          </ul>
 			        </li>
                     <li>
-                        <a href="<c:url value="/Inscription"/>">S'enregistrer </a>
+                    	<c:choose> 
+                    		<c:when test="${!empty sessionScope.user}">	
+                    			${sessionScope.user.pseudo}
+                        		<a href="<c:url value="/Connexion?query=deconnexion"/>">Deconnexion </a>
+                    		</c:when>
+  							<c:otherwise>
+                        		<a href="<c:url value="/Inscription"/>">S'enregistrer </a> <br>
+                        		<a href="<c:url value="/Connexion"/>">S'enregistrer </a>
+                        	</c:otherwise>
+                    	</c:choose>
                     </li>
                 </ul>
             </div>
