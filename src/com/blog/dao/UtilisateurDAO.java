@@ -12,10 +12,10 @@ import com.blog.model.Utilisateur;
 public class UtilisateurDAO {
 	private EntityManagerFactory factory = null;
 	public UtilisateurDAO(){
-		factory = Persistence.createEntityManagerFactory("articles");
+		factory = Persistence.createEntityManagerFactory("blog");
 	}
 	
-	// Fonction de création d'un Utilisateur en le faisant persister dans notre base
+	// Fonction de crÃ©ation d'un Utilisateur en le faisant persister dans notre base
 	public void createUtilisateur(Utilisateur util) {
 	   EntityManager em = null;
 	   try {
@@ -31,7 +31,7 @@ public class UtilisateurDAO {
 	   }
 	}
 	
-	// Fonction de lecture d'un Utilisateur en le récupérant depuis notre base
+	// Fonction de lecture d'un Utilisateur en le rÃ©cupÃ©rant depuis notre base
 	public Utilisateur readUtilisateur(int id) {
 		EntityManager em = null;
 		try {
@@ -45,7 +45,7 @@ public class UtilisateurDAO {
 		}
 	}
 	
-	// Fonction de mise-à-jour d'un Utilisateur existant dans notre base
+	// Fonction de mise-Ã -jour d'un Utilisateur existant dans notre base
 	public void updateUtilisateur(Utilisateur util) {
 		EntityManager em = null;
 		int id_ut = util.getId();
@@ -65,7 +65,7 @@ public class UtilisateurDAO {
 		}
 	}
 	
-	// Fonction de suppression d'un Utilisateur présent dans notre base
+	// Fonction de suppression d'un Utilisateur prÃ©sent dans notre base
 	public void removeUtilisateur(int id) {
 		EntityManager em = null;
 		try {
@@ -81,7 +81,7 @@ public class UtilisateurDAO {
 		}
 	}
 	
-	// Fonction qui récupère la liste de tous les Utilisateurs
+	// Fonction qui rÃ©cupÃ¨re la liste de tous les Utilisateurs
 	public List<Utilisateur> findAllUtilisateurs() {
 		EntityManager em = null;
 		try {

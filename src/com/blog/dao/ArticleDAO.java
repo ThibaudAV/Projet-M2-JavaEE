@@ -16,10 +16,10 @@ public class ArticleDAO {
 private EntityManagerFactory factory = null;
 	
 	public ArticleDAO(){
-		factory = Persistence.createEntityManagerFactory("articles");
+		factory = Persistence.createEntityManagerFactory("blog");
 	}
 	
-	// Fonction de création d'un article en le faisant persister dans notre base
+	// Fonction de crÃ©ation d'un article en le faisant persister dans notre base
 	public void createArticle(Article art) {
 	   EntityManager em = null;
 	   try {
@@ -35,7 +35,7 @@ private EntityManagerFactory factory = null;
 	   }
 	}
 	
-	// Fonction de lecture d'un article en le récupérant depuis notre base
+	// Fonction de lecture d'un article en le rÃ©cupÃ©rant depuis notre base
 	public Article readArticle(int id) {
 		EntityManager em = null;
 		try {
@@ -49,7 +49,7 @@ private EntityManagerFactory factory = null;
 		}	   
 }
 	
-	// Fonction de mise-à-jour d'un article existant dans notre base
+	// Fonction de mise-Ã -jour d'un article existant dans notre base
 	public void updateArticle(Article art) {
 		EntityManager em = null;
 		int id_art = art.getId();
@@ -69,7 +69,7 @@ private EntityManagerFactory factory = null;
 		}	
 	}
 	
-	// Fonction de suppression d'un article présent dans notre base
+	// Fonction de suppression d'un article prÃ©sent dans notre base
 	public void removeArticle(int id) {
 		EntityManager em = null;
 		try {
@@ -85,7 +85,7 @@ private EntityManagerFactory factory = null;
 		}	
 	}
 	
-	// Fonction qui récupère la liste de tous les articles
+	// Fonction qui rÃ©cupÃ¨re la liste de tous les articles
 	public List<Article> findAllArticles() {
 	   EntityManager em = null;
 	   try {
@@ -102,12 +102,12 @@ private EntityManagerFactory factory = null;
 	   }
 	}
 	
-	// Fonction qui récupère la liste des articles par catégorie
+	// Fonction qui rÃ©cupÃ¨re la liste des articles par catÃ©gorie
 	public List<Article> findArticlesByCategorie(int id_cat) {
 		EntityManager em = null;
 		try {
 			em = factory.createEntityManager();
-			Categorie cat = em.find(Categorie.class, id_cat); // récupération de la catégorie
+			Categorie cat = em.find(Categorie.class, id_cat); // rÃ©cupÃ©ration de la catÃ©gorie
 			em.getTransaction().begin();
 			// utilisation de l'EntityManager
 			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.categorie = ?1", Article.class);
@@ -121,12 +121,12 @@ private EntityManagerFactory factory = null;
 		}
 	}
 	
-	// Fonction qui récupère la liste des articles par auteur
+	// Fonction qui rÃ©cupÃ¨re la liste des articles par auteur
 	public List<Article> findArticlesByAuteur(int id_auteur) {
 		EntityManager em = null;
 		try {
 			em = factory.createEntityManager();
-			Utilisateur auteur = em.find(Utilisateur.class, id_auteur); // récupération de l'utilisateur qui est l'auteur
+			Utilisateur auteur = em.find(Utilisateur.class, id_auteur); // rÃ©cupÃ©ration de l'utilisateur qui est l'auteur
 			em.getTransaction().begin();
 			// utilisation de l'EntityManager
 			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.auteur = ?1", Article.class);

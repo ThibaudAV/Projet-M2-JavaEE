@@ -6,7 +6,6 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
