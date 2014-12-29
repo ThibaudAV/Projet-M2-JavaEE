@@ -26,7 +26,7 @@ public class UtilisateurDAO {
 		factory = Persistence.createEntityManagerFactory("blog");
 	}
 	
-	// Fonction de cr�ation d'un Utilisateur en le faisant persister dans notre base
+	// Fonction de création d'un Utilisateur en le faisant persister dans notre base
 	public void createUtilisateur(Utilisateur util) {
 	   EntityManager em = null;
 	   try {
@@ -42,7 +42,7 @@ public class UtilisateurDAO {
 	   }
 	}
 	
-	// Fonction de lecture d'un Utilisateur en le r�cup�rant depuis notre base
+	// Fonction de lecture d'un Utilisateur en le récupérant depuis notre base
 	public Utilisateur readUtilisateur(int id) {
 		EntityManager em = null;
 		try {
@@ -56,7 +56,7 @@ public class UtilisateurDAO {
 		}
 	}
 	
-	// Fonction de mise-�-jour d'un Utilisateur existant dans notre base
+	// Fonction de mise-à-jour d'un Utilisateur existant dans notre base
 	public void updateUtilisateur(Utilisateur util) {
 		EntityManager em = null;
 		int id_ut = util.getId();
@@ -76,7 +76,7 @@ public class UtilisateurDAO {
 		}
 	}
 	
-	// Fonction de suppression d'un Utilisateur pr�sent dans notre base
+	// Fonction de suppression d'un Utilisateur présent dans notre base
 	public void removeUtilisateur(int id) {
 		EntityManager em = null;
 		try {
@@ -92,7 +92,7 @@ public class UtilisateurDAO {
 		}
 	}
 	
-	// Fonction qui r�cup�re la liste de tous les Utilisateurs
+	// Fonction qui récupère la liste de tous les Utilisateurs
 	public List<Utilisateur> findAllUtilisateurs() {
 		EntityManager em = null;
 		try {

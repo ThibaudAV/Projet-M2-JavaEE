@@ -34,7 +34,7 @@
 </ul>
 
 
-<div class="row">
+<div class="">
 	<div class="box">
 		<div class="col-lg-12">
 

@@ -19,7 +19,11 @@ private EntityManagerFactory factory = null;
 		factory = Persistence.createEntityManagerFactory("blog");
 	}
 	
+<<<<<<< HEAD
 	// Fonction de cr�ation d'un article en le faisant persister dans notre base
+=======
+	// Fonction de création d'un article en le faisant persister dans notre base
+>>>>>>> origin/master
 	public void createArticle(Article art) {
 	   EntityManager em = null;
 	   try {
@@ -35,7 +39,7 @@ private EntityManagerFactory factory = null;
 	   }
 	}
 	
-	// Fonction de lecture d'un article en le r�cup�rant depuis notre base
+	// Fonction de lecture d'un article en le récupérant depuis notre base
 	public Article readArticle(int id) {
 		EntityManager em = null;
 		try {
@@ -47,9 +51,9 @@ private EntityManagerFactory factory = null;
 				em.close();
 			}
 		}	   
-}
+	}
 	
-	// Fonction de mise-�-jour d'un article existant dans notre base
+	// Fonction de mise-à-jour d'un article existant dans notre base
 	public void updateArticle(Article art) {
 		EntityManager em = null;
 		int id_art = art.getId();
@@ -68,8 +72,8 @@ private EntityManagerFactory factory = null;
 			}
 		}	
 	}
-	
-	// Fonction de suppression d'un article pr�sent dans notre base
+
+	// Fonction de suppression d'un article présent dans notre base
 	public void removeArticle(int id) {
 		EntityManager em = null;
 		try {
@@ -85,7 +89,7 @@ private EntityManagerFactory factory = null;
 		}	
 	}
 	
-	// Fonction qui r�cup�re la liste de tous les articles
+	// Fonction qui récupère la liste de tous les articles
 	public List<Article> findAllArticles() {
 	   EntityManager em = null;
 	   try {
@@ -102,12 +106,12 @@ private EntityManagerFactory factory = null;
 	   }
 	}
 	
-	// Fonction qui r�cup�re la liste des articles par cat�gorie
+	// Fonction qui récupère la liste des articles par catégorie
 	public List<Article> findArticlesByCategorie(int id_cat) {
 		EntityManager em = null;
 		try {
 			em = factory.createEntityManager();
-			Categorie cat = em.find(Categorie.class, id_cat); // r�cup�ration de la cat�gorie
+			Categorie cat = em.find(Categorie.class, id_cat); // récupération de la catégorie
 			em.getTransaction().begin();
 			// utilisation de l'EntityManager
 			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.categorie = ?1", Article.class);
@@ -121,12 +125,12 @@ private EntityManagerFactory factory = null;
 		}
 	}
 	
-	// Fonction qui r�cup�re la liste des articles par auteur
+	// Fonction qui récupère la liste des articles par auteur
 	public List<Article> findArticlesByAuteur(int id_auteur) {
 		EntityManager em = null;
 		try {
 			em = factory.createEntityManager();
-			Utilisateur auteur = em.find(Utilisateur.class, id_auteur); // r�cup�ration de l'utilisateur qui est l'auteur
+			Utilisateur auteur = em.find(Utilisateur.class, id_auteur); // récupération de l'utilisateur qui est l'auteur
 			em.getTransaction().begin();
 			// utilisation de l'EntityManager
 			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.auteur = ?1", Article.class);

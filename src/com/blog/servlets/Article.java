@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 import com.blog.dao.ArticleDAO;
+import com.blog.model.Categorie;
+import com.blog.model.Utilisateur;
 
 /**
  * Servlet implementation class Article
@@ -44,19 +47,19 @@ public class Article extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-//		// Code pour ajouter un article à partir de la classe ArticleDAO qui gère la persistance en BDD
-//		// ici à partir d'un example pidon -> retravailler pour récupérer les vrais données depuis un formulaire !
+//		// Code pour ajouter un article ï¿½ partir de la classe ArticleDAO qui gï¿½re la persistance en BDD
+//		// ici ï¿½ partir d'un example pidon -> retravailler pour rï¿½cupï¿½rer les vrais donnï¿½es depuis un formulaire !
 //		ArticleDAO dao = new ArticleDAO();
 //		Date d = new Date();
 //		com.blog.model.Article article = new com.blog.model.Article("Mon titre trop bien", "un contenu de l'article", 3, "pseudo/url", 2, d);
-//		// Où  on suppose 3 = id_categorie (3 : sciences) par exemple
+//		// Oï¿½  on suppose 3 = id_categorie (3 : sciences) par exemple
 //		// & 2 = id_user (2 : Isa Boulet) par exemple
 //		dao.createArticle(article);
 //		
-//		// Vérifiacation de la fonction pour obtenir tous les articles
+//		// Vï¿½rifiacation de la fonction pour obtenir tous les articles
 //		List<com.blog.model.Article> la = dao.findAllArticles();
 //		for(com.blog.model.Article a : la){
-//			System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre());
+//			System.out.println("Article nï¿½"+a.getId()+", titre : "+a.getTitre());
 //		}
 	}
 

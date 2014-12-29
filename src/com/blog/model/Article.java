@@ -22,8 +22,6 @@ public class Article {
 	
 	@Column(length=65535)
 	private String corps;
-
-	private String toto;
 	
 	@ManyToOne
 	@Column( name = "categorie" )
