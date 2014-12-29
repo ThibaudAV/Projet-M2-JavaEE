@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
+@javax.persistence.Table(name="article")
 public class Article {
 	
 	@Id
@@ -103,6 +104,14 @@ public class Article {
 	
 	public void setDateCreation(Date newDateCreation){
 		date_creation = newDateCreation;
+	}
+
+	public String getToto() {
+		return toto;
+	}
+
+	public void setToto(String toto) {
+		this.toto = toto;
 	}
 
 }

@@ -62,16 +62,15 @@ public class Inscription extends HttpServlet {
         request.setAttribute( ATT_UTILISATEUR, utilisateur );
         request.setAttribute( ATT_FORM, form );
 
+        /* Si le formulaire est valide et que l'utilisateur est créé */
         if ( form.getErreurs().isEmpty() ) {
         	
-        	
+        	/* Connexion de l'utilisateur */
         	
         	
             /* Si aucune erreur, alors affichage de la fiche récapitulative */
             this.getServletContext().getRequestDispatcher( VUE_SUCCES ).forward( request, response );
         } else {
-        	
-        	System.out.println("sss");
         	
             /* Sinon, ré-affichage du formulaire de création avec les erreurs */
             this.getServletContext().getRequestDispatcher( VUE_FORM ).forward( request, response );

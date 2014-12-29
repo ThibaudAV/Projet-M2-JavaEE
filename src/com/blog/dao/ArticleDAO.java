@@ -47,7 +47,7 @@ private EntityManagerFactory factory = null;
 				em.close();
 			}
 		}	   
-}
+	}
 	
 	// Fonction de mise-à-jour d'un article existant dans notre base
 	public void updateArticle(Article art) {
@@ -68,7 +68,7 @@ private EntityManagerFactory factory = null;
 			}
 		}	
 	}
-	
+
 	// Fonction de suppression d'un article présent dans notre base
 	public void removeArticle(int id) {
 		EntityManager em = null;

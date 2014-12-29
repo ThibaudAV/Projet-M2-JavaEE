@@ -1,11 +1,22 @@
 package com.blog.dao;
 
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import com.blog.model.Utilisateur;
 
@@ -96,6 +107,82 @@ public class UtilisateurDAO {
 				em.close();
 			}
 		}
+	}
+	
+	/* retourne true si le pseudo existe */
+	public boolean isPseudoExist(String pseudoUser) {
+		boolean userExist = false;
+		Utilisateur user = null;
+		EntityManager em = null;
+		try {
+			em = factory.createEntityManager();
+			em.getTransaction().begin();
+
+			 TypedQuery<Utilisateur> query = em.createQuery(
+				        "SELECT u FROM Utilisateur u WHERE u.pseudo = :pseudo", Utilisateur.class);
+				
+			user =  query.setParameter("pseudo", pseudoUser).getSingleResult();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			user = null;
+			userExist = false;
+		} finally {
+			if (em != null) {
+				em.getTransaction().commit();
+				em.close();
+			}
+			if (user != null) {
+				userExist = true;
+			}
+		}
+		
+		return userExist;
+	}
+	
+	
+	
+	/* Retourne l'utilisateur en fonction de son pseudo et de son mot de passe , null sinon  */
+	public Utilisateur getUtilisateurByPseudo(String pseudoUser, String password) {
+		Utilisateur user = null;
+		EntityManager em = null;
+		try {
+			em = factory.createEntityManager();
+			em.getTransaction().begin();
+
+			 TypedQuery<Utilisateur> query = em.createQuery(
+				        "SELECT u FROM Utilisateur u WHERE u.pseudo = :pseudo AND u.password = :password", Utilisateur.class);
+				
+			user =  query.setParameter("pseudo", pseudoUser).setParameter("password", hashPassword(password.toCharArray()) ).getSingleResult();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			user = null;
+		} finally {
+			if (em != null) {
+				em.getTransaction().commit();
+				em.close();
+			}
+		}
+		
+		return user;
+		
+	}
+	
+	private char[] hashPassword(char[] password) {
+		char[] encoded = null;
+        try {
+            ByteBuffer passwdBuffer = 
+              Charset.defaultCharset().encode(CharBuffer.wrap(password));
+            byte[] passwdBytes = passwdBuffer.array();
+            MessageDigest mdEnc = MessageDigest.getInstance("MD5");
+            mdEnc.update(passwdBytes, 0, password.length);
+            encoded = new BigInteger(1, mdEnc.digest()).toString(16).toCharArray();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Utilisateur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return encoded;
 	}
 	
 }
