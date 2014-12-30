@@ -73,6 +73,23 @@ public class UtilisateurDAO {
 		}
 	}
 	
+	// Fonction de mise-à-jour de l'avatar d'un Utilisateur existant dans notre base
+		public void updateAvatarUtilisateur(Utilisateur util) {
+			EntityManager em = null;
+			int id_ut = util.getId();
+			try {
+				em = factory.createEntityManager();
+				Utilisateur ut = em.find(Utilisateur.class, id_ut);
+				em.getTransaction().begin();
+				ut.setAvatar(util.getAvatar());
+			} finally {
+				if (em != null) {
+					em.getTransaction().commit();
+					em.close();
+				}
+			}
+		}
+	
 	// Fonction de suppression d'un Utilisateur présent dans notre base
 	public void removeUtilisateur(int id) {
 		EntityManager em = null;

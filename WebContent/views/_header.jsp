@@ -91,9 +91,11 @@
 			          					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> ${sessionScope.user.pseudo}<span class="caret"></span>
 			          				</a>
 						          <ul class="dropdown-menu" role="menu">
+						          
 						            <li><a href="<c:url value="/Inscription"/>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Mes articles</a></li>
 						            <li><a href="<c:url value="/Connexion"/>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Ajouter un articles</a></li>
-						            <li><a href="<c:url value="/Connexion"/>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+						            <li><a href="<c:url value="/Profil"/>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+						          	<li><a href="<c:url value="/Connexion?query=deconnexion"/>">Deconnexion </a></li>
 						          </ul>
 						        </li>
                     		</c:when>
