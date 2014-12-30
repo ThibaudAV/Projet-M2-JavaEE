@@ -8,7 +8,7 @@
 			class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<form role="form" method="post" action="<c:url value="/Inscription"/>">
 				<h2>
-					Please Sign Up <small>It's free and always will be.</small>
+					Inscrivez-vous <small>C'est gratuit et ça le restera toujours.</small>
 				</h2>
 				<hr>
 
@@ -20,7 +20,7 @@
 				</div>
 				<div class="form-group">
 					<input type="email" name="emailUser" id="email"
-						class="form-control input-lg" placeholder="Email Address"
+						class="form-control input-lg" placeholder="Addresse Mail"
 						value="<c:out value="${utilisateur.email}"/>" tabindex="4">
 					<span class="erreur">${form.erreurs['emailUser']}</span>
 				</div>
@@ -28,7 +28,7 @@
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div class="form-group">
 							<input type="password" name="passwordUser" id="password"
-								class="form-control input-lg" placeholder="Password"
+								class="form-control input-lg" placeholder="Mot de Passe"
 								tabindex="5" value="">
 						</div>
 					</div>
@@ -36,7 +36,7 @@
 						<div class="form-group">
 							<input type="password" name="passwordUser_confirmation"
 								id="password_confirmation" class="form-control input-lg"
-								placeholder="Confirm Password" tabindex="6"
+								placeholder="Confirmer le Mot de Passe" tabindex="6"
 								value="">
 						</div>
 					</div>
@@ -45,16 +45,14 @@
 				<div class="row">
 					<div class="col-xs-4 col-sm-3 col-md-3">
 						<span class="button-checkbox">
-							<button type="button" class="btn" data-color="info" tabindex="7">I
-								Agree</button> <input type="checkbox" name="t_and_c" id="t_and_c"
+							<button type="button" class="btn" data-color="info" tabindex="7"> J'accepte</button> <input type="checkbox" name="t_and_c" id="t_and_c"
 							class="hidden" value="1">
 						</span>
 					</div>
 					<div class="col-xs-8 col-sm-9 col-md-9">
-						By clicking <strong class="label label-primary">Register</strong>,
-						you agree to the <a href="#" data-toggle="modal"
-							data-target="#t_and_c_m">Terms and Conditions</a> set out by this
-						site, including our Cookie Use.
+						En cliquant sur <strong class="label label-primary">S'inscrire</strong>,
+						vous acceptez les  <a href="#" data-toggle="modal"
+							data-target="#t_and_c_m">Conditions Générales d'utilisation</a> de ce site, ainsi que la politique d'utilisation des cookies.
 					</div>
 					<span class="erreur">${form.erreurs['t_and_c']}</span>
 				</div>
@@ -62,11 +60,11 @@
 				<hr>
 				<div class="row">
 					<div class="col-xs-12 col-md-6">
-						<input type="submit" value="Register"
+						<input type="submit" value="S'inscrire"
 							class="btn btn-primary btn-block btn-lg" tabindex="7">
 					</div>
 					<div class="col-xs-12 col-md-6">
-						<a href="<c:url value="/Connexion"/>" class="btn btn-success btn-block btn-lg">Sign In</a>
+						<a href="<c:url value="/Connexion"/>" class="btn btn-success btn-block btn-lg">Se Connecter</a>
 					</div>
 				</div>
 			</form>
