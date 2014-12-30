@@ -70,7 +70,7 @@
 					</div>
 				</c:if>
                 
-                <input name="pseudoUser" type="text" class="form-control" placeholder="<fmt:message key="register.mail" />" required autofocus>
+                <input name="pseudoUser" type="text" class="form-control" placeholder="<fmt:message key="connection.pseudo" />" required autofocus>
                 <input name="password" type="password" class="form-control" placeholder="<fmt:message key="register.password" />" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     <fmt:message key="general.signin" /></button>
