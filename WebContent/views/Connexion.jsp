@@ -59,7 +59,7 @@
     <div class="row">
 	<div class="box">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center">Sign in</h1>
+            <h1 class="text-center"><fmt:message key="general.signin" /></h1>
                 <img class="img-circle center-block" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt="">
                 <form class="form-signin" role="form" method="post" action="<c:url value="/Connexion"/>">
@@ -70,17 +70,17 @@
 					</div>
 				</c:if>
                 
-                <input name="pseudoUser" type="text" class="form-control" placeholder="Email" required autofocus>
-                <input name="password" type="password" class="form-control" placeholder="Password" required>
+                <input name="pseudoUser" type="text" class="form-control" placeholder="<fmt:message key="register.mail" />" required autofocus>
+                <input name="password" type="password" class="form-control" placeholder="<fmt:message key="register.password" />" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign in</button>
+                    <fmt:message key="general.signin" /></button>
                 <label class="checkbox pull-left">
                     <input type="checkbox" value="remember-me">
-                    Remember me
+                    <fmt:message key="connection.remember" />
                 </label>
-                <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                <a href="#" class="pull-right need-help"><fmt:message key="connection.help" /></a><span class="clearfix"></span>
                 </form>
-            <a href="<c:url value="/Inscription"/>" class="text-center new-account">Create an account </a>
+            <a href="<c:url value="/Inscription"/>" class="text-center new-account"><fmt:message key="connection.account" /></a>
         </div>
     </div>
 </div>

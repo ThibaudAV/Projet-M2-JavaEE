@@ -50,7 +50,7 @@
 <body>
 
     <div class="brand">Le P'ti dev</div>
-    <div class="address-bar">Venez prendre votre petit Dev pour vous tenir informé des nouvelles actualités dans le monde numérique</div>
+    <div class="address-bar"><fmt:message key="general.subtitle" /></div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -70,10 +70,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="<c:url value="/Articles"/>">Blog</a>
+                        <a href="<c:url value="/Articles"/>"><fmt:message key="general.blog" /></a>
                     </li>
                     <li>
-                        <a href="<c:url value="/About"/>">Qui somme nous ?</a>
+                        <a href="<c:url value="/About"/>"><fmt:message key="general.who" /></a>
                     </li>
                     <li class="dropdown">
           				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -100,11 +100,11 @@
   							<c:otherwise>
 			                    <li class="dropdown">
 			          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-			          					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> S'enregistrer<span class="caret"></span>
+			          					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> <fmt:message key="general.signin" /><span class="caret"></span>
 			          				</a>
 						          <ul class="dropdown-menu" role="menu">
-						            <li><a href="<c:url value="/Inscription"/>"> Inscription</a></li>
-						            <li><a href="<c:url value="/Connexion"/>"> Connexion</a></li>
+						            <li><a href="<c:url value="/Inscription"/>"> <fmt:message key="general.register" /></a></li>
+						            <li><a href="<c:url value="/Connexion"/>"><fmt:message key="general.signin" /></a></li>
 						          </ul>
 						        </li>
                         	</c:otherwise>

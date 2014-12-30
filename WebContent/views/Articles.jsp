@@ -38,8 +38,21 @@
 	<div class="box">
 		<div class="col-lg-12">
 
-
-			<h1>
+			<c:forEach items="${requestScope.list_article}" var="article">
+            <div class="col-lg-12 text-center">
+                <img class="img-responsive img-border img-full"
+                    src="${pageContext.request.contextPath}${article.image}" alt="">
+				<h2> ${article.titre} <br> <small>${article.date_creation} </small>
+                </h2>
+                <p>${article.corps}</p>
+                <a href="views/Article.jsp?id=${article.id}" class="btn btn-default btn-lg">Read More</a>
+                <hr>
+            </div>
+        </c:forEach>
+        
+        
+        
+			<!-- <h1>
 				Test de langues :
 				<fmt:message key="general.hello" />
 			</h1>
@@ -99,10 +112,14 @@
 		</div>
 		<div class="col-lg-12 text-center">
 			<ul class="pager">
-				<li class="previous"><a href="#">&larr; Older</a></li>
-				<li class="next"><a href="#">Newer &rarr;</a></li>
+				<li class="previous"><a href="#">&larr; <fmt:message key="nav.older" /></a></li>
+				<li class="next"><a href="#"><fmt:message key="nav.newer" /> &rarr;</a></li>
 			</ul>
+			
 		</div>
+		
+		
+		-->
 	</div>
 </div>
 

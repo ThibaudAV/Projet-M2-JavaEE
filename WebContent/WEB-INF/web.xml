@@ -8,13 +8,14 @@
 		<param-value>
 			en
 		</param-value>
+
 	</context-param>
 	<display-name>Projet-M2-JavaEE</display-name>
 	<welcome-file-list>
 		<welcome-file>views/Articles.jsp</welcome-file>
 	</welcome-file-list>
-	
-	
+
+
 	<servlet>
 		<servlet-name>Articles</servlet-name>
 		<servlet-class>com.blog.servlets.Articles</servlet-class>
@@ -23,8 +24,8 @@
 		<servlet-name>Articles</servlet-name>
 		<url-pattern>/articles</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>Articles_by</servlet-name>
 		<servlet-class>com.blog.servlets.Articles_by</servlet-class>
@@ -37,26 +38,26 @@
 		<servlet-name>Articles_by</servlet-name>
 		<url-pattern>/articles/*</url-pattern>
 	</servlet-mapping>
-	
-	
-	
+
+
+
 	<servlet>
 		<servlet-name>Article_create</servlet-name>
 		<servlet-class>com.blog.servlets.Article_create</servlet-class>
 		<multipart-config>
 			<location>C:\Users\Utilisateur\Documents</location>
-			<max-file-size>10485760</max-file-size>
-			<max-request-size>52428800</max-request-size>
-			<file-size-threshold>1048576</file-size-threshold>
+			<max-file-size>10485760</max-file-size> <!-- 10 Mo -->
+			<max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
+			<file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->
 		</multipart-config>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Article_create</servlet-name>
 		<url-pattern>/Article_create</url-pattern>
 	</servlet-mapping>
-	
-	
-	
+
+
+
 	<servlet>
 		<servlet-name>Profil</servlet-name>
 		<servlet-class>com.blog.servlets.Profil</servlet-class>
@@ -65,6 +66,7 @@
 		<servlet-name>Profil</servlet-name>
 		<url-pattern>/profil</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
+
 </web-app>
