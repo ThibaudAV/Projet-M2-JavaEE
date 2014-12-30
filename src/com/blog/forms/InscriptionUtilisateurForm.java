@@ -95,7 +95,7 @@ public final class InscriptionUtilisateurForm {
                 throw new Exception( "Le pseudo doit contenir au moins 2 caractères." );
             }
             /* Si le pseudo n'existe pas deja*/
-            if (utilisateurDAO.isPseudoExist(pseudo) == false) {
+            if (utilisateurDAO.isPseudoExist(pseudo) == true) {
             	throw new Exception( "Le pseudo est deja utilisé par un utilisateur" );
             }
         } else {

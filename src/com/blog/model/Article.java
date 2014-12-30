@@ -106,12 +106,4 @@ public class Article {
 		date_creation = newDateCreation;
 	}
 
-	public String getToto() {
-		return toto;
-	}
-
-	public void setToto(String toto) {
-		this.toto = toto;
-	}
-
 }

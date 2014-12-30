@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@javax.persistence.Table(name="categorie")
 public class Categorie {
 	
 	@Id

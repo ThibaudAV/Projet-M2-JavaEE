@@ -35,7 +35,9 @@ public class Utilisateur {
 	
 	private String avatar;
 
-	
+	public Utilisateur(){
+		super();
+	}
 	
 	public int getId() {
 		return id;

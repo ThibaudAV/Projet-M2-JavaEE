@@ -20,7 +20,7 @@ private EntityManagerFactory factory = null;
 	}
 	
 
-	// Fonction de cr�ation d'un article en le faisant persister dans notre base
+	// Fonction de création d'un article en le faisant persister dans notre base
 	public void createArticle(Article art) {
 	   EntityManager em = null;
 	   try {
