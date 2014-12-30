@@ -43,7 +43,7 @@
                 <img class="img-responsive img-border img-full"
                     src="${pageContext.request.contextPath}${article.image}" alt="">
 				<h2>
-					${article.titre} <br> <small>${article.date_creation}</small>
+					${article.titre} <br> <small></small>
                 </h2>
                 <p>${article.corps}</p>
                 <a href="views/Article.jsp?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
