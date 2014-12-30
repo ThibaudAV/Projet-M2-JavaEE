@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.blog.dao.ArticleDAO;
+import com.blog.model.Article;
 
 /**
  * Servlet implementation class Articles
@@ -34,9 +35,9 @@ public class Articles extends HttpServlet {
 		        
 		        ArticleDAO daoArt = new ArticleDAO();
 		        
-		        List<com.blog.model.Article> list = daoArt.findAllArticles();
+		        List<Article> list = daoArt.findAllArticles();
 		        
-		        for(com.blog.model.Article a : list){
+		        for(Article a : list){
 		            System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre());
 		            
 		        }
