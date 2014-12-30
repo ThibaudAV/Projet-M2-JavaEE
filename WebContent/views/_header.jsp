@@ -49,8 +49,8 @@
 
 <body>
 
-    <div class="brand">Business Casual</div>
-    <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+    <div class="brand">Le P'ti dev</div>
+    <div class="address-bar">Venez prendre votre petit Dev pour vous tenir informé des nouvelles actualités dans le monde numérique</div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -64,44 +64,51 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="<c:url value="/Articles"/>">Business Casual</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="<c:url value="/Articles"/>">Blog</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="blog.html">Blog</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="<c:url value="/About"/>">Qui somme nous ?</a>
                     </li>
                     <li class="dropdown">
           				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 			          ${language == 'en' ? 'English' : ''}
 			          ${language == 'fr' ? 'Francais' : ''} <span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
-			            <li><a href="?language=en">English</a></li>
-			            <li><a href="?language=fr">Francais</a></li>
+			            <li><a href="?language=en"><img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/en-EN.png"> English</a></li>
+			            <li><a href="?language=fr"><img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/fr-FR.png"> Francais</a></li>
 			          </ul>
 			        </li>
-                    <li>
                     	<c:choose> 
                     		<c:when test="${!empty sessionScope.user}">	
-                    			${sessionScope.user.pseudo}
-                        		<a href="<c:url value="/Connexion?query=deconnexion"/>">Deconnexion </a>
+			                    <li class="dropdown">
+			          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+			          					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> ${sessionScope.user.pseudo}<span class="caret"></span>
+			          				</a>
+						          <ul class="dropdown-menu" role="menu">
+						            <li><a href="<c:url value="/Inscription"/>"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Mes articles</a></li>
+						            <li><a href="<c:url value="/Connexion"/>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Ajouter un articles</a></li>
+						            <li><a href="<c:url value="/Connexion"/>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+						          </ul>
+						        </li>
                     		</c:when>
   							<c:otherwise>
-                        		<a href="<c:url value="/Inscription"/>">S'enregistrer </a> <br>
-                        		<a href="<c:url value="/Connexion"/>">S'enregistrer </a>
+			                    <li class="dropdown">
+			          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+			          					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> S'enregistrer<span class="caret"></span>
+			          				</a>
+						          <ul class="dropdown-menu" role="menu">
+						            <li><a href="<c:url value="/Inscription"/>"> Inscription</a></li>
+						            <li><a href="<c:url value="/Connexion"/>"> Connexion</a></li>
+						          </ul>
+						        </li>
                         	</c:otherwise>
                     	</c:choose>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

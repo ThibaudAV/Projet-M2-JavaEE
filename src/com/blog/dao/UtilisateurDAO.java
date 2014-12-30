@@ -143,10 +143,10 @@ public class UtilisateurDAO {
 	public Utilisateur getUtilisateurByPseudo(String pseudoUser, String password) {
 		Utilisateur user = null;
 		EntityManager em = null;
+		System.out.println("pseudoUser= "+pseudoUser+" password: "+password);
 		try {
 			em = factory.createEntityManager();
 			em.getTransaction().begin();
-
 			 TypedQuery<Utilisateur> query = em.createQuery(
 				        "SELECT u FROM Utilisateur u WHERE u.pseudo = :pseudo AND u.password = :password", Utilisateur.class);
 				
