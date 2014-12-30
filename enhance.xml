@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="IC2A_M2_MyNews">
+<project name="Projet-M2-JavaEE">
 	
 	<!-- add classes and the libraries to the enhancement classpath -->
 	<path id="enhance.cp">

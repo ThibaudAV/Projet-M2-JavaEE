@@ -19,11 +19,8 @@ private EntityManagerFactory factory = null;
 		factory = Persistence.createEntityManagerFactory("blog");
 	}
 	
-<<<<<<< HEAD
-	// Fonction de création d'un article en le faisant persister dans notre base
-=======
-	// Fonction de crÃ©ation d'un article en le faisant persister dans notre base
->>>>>>> origin/master
+
+	// Fonction de crï¿½ation d'un article en le faisant persister dans notre base
 	public void createArticle(Article art) {
 	   EntityManager em = null;
 	   try {
