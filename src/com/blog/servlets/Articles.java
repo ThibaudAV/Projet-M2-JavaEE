@@ -1,11 +1,15 @@
 package com.blog.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.blog.dao.ArticleDAO;
 
 /**
  * Servlet implementation class Articles
@@ -25,10 +29,23 @@ public class Articles extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-        this.getServletContext().getRequestDispatcher( "/views/Articles.jsp" ).forward( request, response );
-	}
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+		{
+		        
+		        ArticleDAO daoArt = new ArticleDAO();
+		        
+		        List<com.blog.model.Article> list = daoArt.findAllArticles();
+		        
+		        for(com.blog.model.Article a : list){
+		            System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre());
+		            
+		        }
+		        // Set des paramètres
+		        request.setAttribute("list_article", list);
+		        
+		        this.getServletContext().getRequestDispatcher("/Articles.jsp").forward( request, response );
+		   }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

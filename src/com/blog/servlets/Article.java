@@ -38,18 +38,7 @@ public class Article extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 		{
 		        
-		        ArticleDAO daoArt = new ArticleDAO();
-		        
-		        List<com.blog.model.Article> list = daoArt.findAllArticles();
-		        
-		        for(com.blog.model.Article a : list){
-		            System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre());
-		            
-		        }
-		        // Set des paramètres
-		        request.setAttribute("list_article", list);
-		        
-		        this.getServletContext().getRequestDispatcher("/Articles.jsp").forward( request, response );
+			this.getServletContext().getRequestDispatcher("/Article.jsp").forward( request, response );
 		    }
 
 
