@@ -51,7 +51,7 @@ public class Article_create extends HttpServlet {
     public void init(ServletConfig conf) throws ServletException {  
     	super.init(conf);
     	/* GET the real path of the application*/
-    	path = conf.getServletContext().getRealPath("//");
+    	path = conf.getServletContext().getRealPath("");
     }
 
 	/**
@@ -106,9 +106,7 @@ public class Article_create extends HttpServlet {
 	    
 	    // get categorie
 	    CategorieDAO daoCat = new CategorieDAO();
-	    System.out.println("Cat : "+categorie);
 	    Categorie selectCat = daoCat.readArticle(Integer.parseInt(categorie));
-	    System.out.println("Objet Cat : "+selectCat.getNom());
 	    
 	 // get Auteur
 	    HttpSession session = request.getSession();
