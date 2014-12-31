@@ -5,7 +5,7 @@
 	<div class="box">
 		<div class="col-lg-12">
 			<h2 class="intro-text text-center">
-				Mes Articles
+				<fmt:message key="general.myarticles" />
 			</h2>
 			<hr>
 		</div>
@@ -18,17 +18,17 @@
 					${article.titre} <br> <small>October 13, 2013</small>
 				</h2>
 				<p>${article.corps}</p>
-				<a href="views/Article.jsp?id=${article.id}" class="btn btn-default btn-lg">Read More</a>
-				<a href="Article_edit?id=${article.id}" class="btn btn-default btn-lg">Update</a>
-				<a href="Article_delete?id=${article.id}" class="btn btn-default btn-lg">Remove</a>
+				<a href="views/Article.jsp?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
+				<a href="Article_edit?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.modifier" /></a>
+				<a href="Article_delete?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="general.supprimer" /></a>
 				<hr>
 			</div>
 		</c:forEach>
 		
 		<div class="col-lg-12 text-center">
 			<ul class="pager">
-				<li class="previous"><a href="#">&larr; Older</a></li>
-				<li class="next"><a href="#">Newer &rarr;</a></li>
+				<li class="previous"><a href="#">&larr; <fmt:message key="nav.older" /></a></li>
+				<li class="next"><a href="#"><fmt:message key="nav.newer" /> &rarr;</a></li>
 			</ul>
 		</div>
 	</div>

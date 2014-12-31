@@ -68,11 +68,19 @@ public class Article_edit extends HttpServlet {
 		String image = article.getImage();
 		String message_img = "";
 		if(image != null){
-			message_img = "Vous pouvez télécharger une autre image si vous le souhaitez.";
+//			message_img = "<fmt:message key='article.helpnewimage' />.";
+			message_img = "helpnewimage";
 		} else {
-			message_img = "Télécharger une image pour mettre en valeur votre article.";
+//			message_img = "<fmt:message key='article.helpimage' />.";
+			message_img = "helpimage";
 		}
 		request.setAttribute("msg_img", message_img);
+		
+		// list des catégories
+		CategorieDAO daoCat = new CategorieDAO();
+		
+		List<Categorie> list = daoCat.findAllCategories();
+		request.setAttribute("list_cat", list);
 		
 		this.getServletContext().getRequestDispatcher( VUE_FORM ).forward( request, response );
 	}
@@ -156,7 +164,7 @@ public class Article_edit extends HttpServlet {
 	    
 	    // get categorie
 	    CategorieDAO daoCat = new CategorieDAO();
-	    Categorie selectCat = daoCat.readArticle(Integer.parseInt(categorie));
+	    Categorie selectCat = daoCat.readCategorie(Integer.parseInt(categorie));
 	    System.out.println("Objet Cat : "+selectCat.getNom());
 	    
 	    

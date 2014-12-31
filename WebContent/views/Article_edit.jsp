@@ -8,110 +8,43 @@
 			class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<form method="post" action="<c:url value="/Article_edit"/>" onsubmit="return valider()" enctype="multipart/form-data">
 				<h2>
-					Modifier un article
+					<fmt:message key="article.modifierarticle" />
 				</h2>
 				<hr>
 				  <div class="form-group">
-				    <label class="control-label" for="InputTitle">Titre</label>
-				    <input type="text" class="form-control" id="title" name="title" placeholder="Entrer le titre de l'article" value="${requestScope.titre}">
-				    <p class="help-block hide">Veuillez un titre pour votre article.</p>
+				    <label class="control-label" for="InputTitle"><fmt:message key="article.titre" /></label>
+				    <input type="text" class="form-control" id="title" name="title" placeholder="<fmt:message key='article.entrertitre' />" value="${requestScope.titre}">
+				    <p class="help-block hide"><fmt:message key='article.errortitre' />.</p>
 				  </div>
 				  <div class="form-group">
-				    <label class="control-label" for="InputCategorie">Catégorie</label>
+				    <label class="control-label" for="InputCategorie"><fmt:message key='article.categorie' /></label>
 				    <select class="form-control" id="categorie" name="categorie">
-				    	
-					  <option value="default">Choisir une catégorie</option>
-					  	<c:choose>
-						    <c:when test="${ requestScope.categorie == 1 }"><option value="1" selected>Animaux et Animaux de compagnie</option></c:when>
-						    <c:otherwise><option value="1">Animaux et Animaux de compagnie</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 2 }"><option value="2" selected>Arts et loisirs</option></c:when>
-						    <c:otherwise><option value="2">Arts et loisirs</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 3 }"><option value="3" selected>Communication et éducation</option></c:when>
-						    <c:otherwise><option value="3">Communication et éducation</option></c:otherwise>
-						</c:choose>
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 4 }"><option value="4" selected>Cuisine et gastronomie</option></c:when>
-						    <c:otherwise><option value="4">Cuisine et gastronomie</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 5 }"><option value="5" selected>Finances et affaires</option></c:when>
-						    <c:otherwise><option value="5">Finances et affaires</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 6 }"><option value="6" selected>Fêtes et traditions</option></c:when>
-						    <c:otherwise><option value="6">Fêtes et traditions</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 7 }"><option value="7" selected>Jeunesse</option></c:when>
-						    <c:otherwise><option value="7">Jeunesse</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 8 }"><option value="8" selected>Maison et jardin</option></c:when>
-						    <c:otherwise><option value="8">Maison et jardin</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 9 }"><option value="9" selected>Monde du travail et de l'emploi</option></c:when>
-						    <c:otherwise><option value="9">Monde du travail et de l'emploi</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 10 }"><option value="10" selected>Ordinateurs et électronique</option></c:when>
-						    <c:otherwise><option value="10">Ordinateurs et électronique</option></c:otherwise>
-						</c:choose>	
-					  	<c:choose>
-						    <c:when test="${ requestScope.categorie == 11 }"><option value="11" selected>Passe temps</option></c:when>
-						    <c:otherwise><option value="11">Passe temps</option></c:otherwise>
-						</c:choose>
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 12 }"><option value="12" selected>Philosophie et religion</option></c:when>
-						    <c:otherwise><option value="12">Philosophie et religion</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 13 }"><option value="13" selected>Relations sociales</option></c:when>
-						    <c:otherwise><option value="13">Relations sociales</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 14 }"><option value="14" selected>Santé</option></c:when>
-						    <c:otherwise><option value="14">Santé</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 15 }"><option value="15" selected>Soin et style de vie</option></c:when>
-						    <c:otherwise><option value="15">Soin et style de vie</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 16 }"><option value="16" selected>Sports et mise en forme</option></c:when>
-						    <c:otherwise><option value="16">Sports et mise en forme</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 17 }"><option value="17" selected>Vie de la famille</option></c:when>
-						    <c:otherwise><option value="17">Vie de la famille</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 18 }"><option value="18" selected>Voitures et autres véhicules</option></c:when>
-						    <c:otherwise><option value="18">Voitures et autres véhicules</option></c:otherwise>
-						</c:choose>	
-						<c:choose>
-						    <c:when test="${ requestScope.categorie == 19 }"><option value="19" selected>Voyages</option></c:when>
-						    <c:otherwise><option value="19">Voyages</option></c:otherwise>
-						</c:choose>					  
+					  <option value="default"><fmt:message key='article.defaultcategorie' /></option>
+					  <c:forEach items="${requestScope.list_cat}" var="categorie"> 
+					  		<c:choose>
+							    <c:when test="${ requestScope.categorie == categorie.id }"><option value="${categorie.id}" selected>${categorie.nom}</option></c:when>
+							    <c:otherwise><option value="${categorie.id}">${categorie.nom}</option></c:otherwise>
+							</c:choose>
+					  </c:forEach>		  
 					</select>
-					<p class="help-block hide">Veuillez choisir une catégorie parmi la liste.</p>
+					<p class="help-block hide"><fmt:message key='article.errorcategorie' />.</p>
 				  </div>
 				  <div class="form-group">
-				    <label class="control-label" for="TextCorps">Contenu</label>
+				    <label class="control-label" for="TextCorps"><fmt:message key='article.contenu' /></label>
 				   	<textarea id="corps" name="corps" class="form-control" rows="10">${requestScope.corps}</textarea>
-				   	<p class="help-block hide">Veuillez écrire au minimum 50 mots pour publier un article.</p>
+				   	<p class="help-block hide"><fmt:message key='article.errorcontenu' />.</p>
 				  </div>
 				  <div class="form-group">
-				    <label class="control-label" for="InputFileImage">Image</label>
+				    <label class="control-label" for="InputFileImage"><fmt:message key='article.image' /></label>
 				    <input type="file" id="image" name="image">
-				    <p class="help-block">${requestScope.msg_img}</p>
+				    <c:choose>
+					    <c:when test="${ requestScope.msg_img == 'helpnewimage' }"><p class="help-block"><fmt:message key='article.helpnewimage' />.</p></c:when>
+					    <c:otherwise><p class="help-block"><fmt:message key='article.helpimage' />.</p></c:otherwise>
+					</c:choose>
 				  </div>
 				  <input type="hidden" name="id" value="${requestScope.id}">
-				  <button id="valid_add" type="submit" class="btn btn-default">Modifier</button>
+				  <button id="valid_add" type="submit" class="btn btn-default"><fmt:message key='article.modifier' /></button>
+				  <a href="Article_my" class="btn btn-default"><fmt:message key="general.annuler" /></a>
 			</form>
 		</div>
 	</div>

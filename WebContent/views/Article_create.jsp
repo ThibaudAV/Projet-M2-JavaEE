@@ -8,51 +8,35 @@
 			class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<form method="post" action="<c:url value="/Article_create"/>" onsubmit="return valider()" enctype="multipart/form-data">
 				<h2>
-					Ajouter un article
+					<fmt:message key="general.addarticle" />
 				</h2>
 				<hr>
 				  <div class="form-group">
-				    <label class="control-label" for="InputTitle">Titre</label>
-				    <input type="text" class="form-control" id="title" name="title" placeholder="Entrer le titre de l'article">
-				    <p class="help-block hide">Veuillez un titre pour votre article.</p>
+				    <label class="control-label" for="InputTitle"><fmt:message key="article.titre" /></label>
+				    <input type="text" class="form-control" id="title" name="title" placeholder="<fmt:message key='article.entrertitre' />">
+				    <p class="help-block hide"><fmt:message key='article.errortitre' />.</p>
 				  </div>
 				  <div class="form-group">
-				    <label class="control-label" for="InputCategorie">Catégorie</label>
+				    <label class="control-label" for="InputCategorie"><fmt:message key='article.categorie' /></label>
 				    <select class="form-control" id="categorie" name="categorie">
-					  <option value="default">Choisir une catégorie</option>
-					  <option value="1">Animaux et Animaux de compagnie</option>
-					  <option value="2">Arts et loisirs</option>
-					  <option value="3">Communication et éducation</option>
-					  <option value="4">Cuisine et gastronomie</option>
-					  <option value="5">Finances et affaires</option>
-					  <option value="6">Fêtes et traditions</option>
-					  <option value="7">Jeunesse</option>
-					  <option value="8">Maison et jardin</option>
-					  <option value="9">Monde du travail et de l'emploi</option>
-					  <option value="10">Ordinateurs et électronique</option>
-					  <option value="11">Passe temps</option>
-					  <option value="12">Philosophie et religion</option>
-					  <option value="13">Relations sociales</option>
-					  <option value="14">Santé</option>
-					  <option value="15">Soin et style de vie</option>
-					  <option value="16">Sports et mise en forme</option>
-					  <option value="17">Vie de la famille</option>
-					  <option value="18">Voitures et autres véhicules</option>
-					  <option value="19">Voyages</option>
+					  <option value="default"><fmt:message key='article.defaultcategorie' /></option>
+					  <c:forEach items="${requestScope.list_cat}" var="categorie"> 
+							<option value="${categorie.id}">${categorie.nom}</option>
+					  </c:forEach>
 					</select>
-					<p class="help-block hide">Veuillez choisir une catégorie parmi la liste.</p>
+					<p class="help-block hide"><fmt:message key='article.errorcategorie' />.</p>
 				  </div>
 				  <div class="form-group">
-				    <label class="control-label" for="TextCorps">Contenu</label>
+				    <label class="control-label" for="TextCorps"><fmt:message key='article.contenu' /></label>
 				   	<textarea id="corps" name="corps" class="form-control" rows="10"></textarea>
-				   	<p class="help-block hide">Veuillez écrire au minimum 50 mots pour publier un article.</p>
+				   	<p class="help-block hide"><fmt:message key='article.errorcontenu' />.</p>
 				  </div>
 				  <div class="form-group">
-				    <label class="control-label" for="InputFileImage">Image</label>
+				    <label class="control-label" for="InputFileImage"><fmt:message key='article.image' /></label>
 				    <input type="file" id="image" name="image">
-				    <p class="help-block">Télécharger une image pour mettre en valeur votre article.</p>
+				    <p class="help-block"><fmt:message key='article.helpimage' />.</p>
 				  </div>
-				  <button id="valid_add" type="submit" class="btn btn-default">Publier</button>
+				  <button id="valid_add" type="submit" class="btn btn-default"><fmt:message key='article.publier' /></button>
 			</form>
 		</div>
 	</div>

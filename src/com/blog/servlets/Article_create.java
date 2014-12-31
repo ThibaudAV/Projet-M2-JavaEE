@@ -49,7 +49,12 @@ public class Article_create extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		CategorieDAO daoCat = new CategorieDAO();
+		
+		List<Categorie> list = daoCat.findAllCategories();
+		request.setAttribute("list_cat", list);
+		
 		this.getServletContext().getRequestDispatcher( VUE_FORM ).forward( request, response );
 	}
 
@@ -128,7 +133,7 @@ public class Article_create extends HttpServlet {
 	    
 	    // get categorie
 	    CategorieDAO daoCat = new CategorieDAO();
-	    Categorie selectCat = daoCat.readArticle(Integer.parseInt(categorie));
+	    Categorie selectCat = daoCat.readCategorie(Integer.parseInt(categorie));
 	    System.out.println("Objet Cat : "+selectCat.getNom());
 	    
 	    // get current date
