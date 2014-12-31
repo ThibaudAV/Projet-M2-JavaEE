@@ -66,7 +66,7 @@ public class Profil extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
-		// si l'utilisateur est connecté 
+		// si l'utilisateur n'est pas connecté 
 		if(user == null) {
 	        this.getServletContext().getRequestDispatcher( VUE_SUCCES ).forward( request, response );
 		}

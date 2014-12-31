@@ -132,7 +132,6 @@
 					p_img.html("Télécharger une image pour mettre en valeur votre article.");
 				}				
 			}
-			alert('pause^^');
 			return true;
 		}
 		
