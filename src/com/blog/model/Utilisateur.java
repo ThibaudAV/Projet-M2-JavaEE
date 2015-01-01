@@ -67,6 +67,15 @@ public class Utilisateur {
 		return password;
 	}
 
+	public String getSignature() {
+		return signature;
+	}
+
+	public void setSignature(String signature) {
+		System.out.println(signature);
+		this.signature = signature;
+	}
+
 	public void setPassword(String password) {
 		this.password = hashPassword( password.toCharArray() );
 	}
@@ -85,14 +94,6 @@ public class Utilisateur {
         }
 
         return encoded;
-	}
-
-	public String getSignature() {
-		return signature;
-	}
-
-	public void setSignature(String signature) {
-		this.signature = signature;
 	}
 
 	public String getAvatar() {
