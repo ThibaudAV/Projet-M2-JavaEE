@@ -18,6 +18,7 @@ import com.blog.model.Article;
 @WebServlet("/Articles")
 public class Articles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static final String VUE   = "/views/Articles.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -44,7 +45,7 @@ public class Articles extends HttpServlet {
 		        // Set des paramètres
 		        request.setAttribute("list_article", list);
 		        
-		        this.getServletContext().getRequestDispatcher("/Articles.jsp").forward( request, response );
+		        this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
 		   }
 
 
