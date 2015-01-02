@@ -35,7 +35,7 @@
                     </h2>
                     <p>${requestScope.corps}</p>
                     <hr>
-                    <fmt:message key='article.written' /> <img src="${pageContext.request.contextPath}/static/img/avatar/${auteur.getAvatar()}" class="avatar img-circle"
+                    <fmt:message key='article.written' /> <img src="" class="avatar img-circle"
 							alt="avatar" width="20px" height="20px"/> ${requestScope.auteur } <br>
                    <em> ${requestScope.signature } </em>
                 </div>
