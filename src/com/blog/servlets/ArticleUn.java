@@ -50,7 +50,6 @@ public class ArticleUn extends HttpServlet {
 				Utilisateur auteur = article.getAuteur();
 				String pseudo_aut = auteur.getPseudo();
 				String sign_aut = auteur.getSignature();
-				String avatar_aut = auteur.getAvatar(); 
 				
 
 				System.out.println(id_art);
@@ -59,9 +58,7 @@ public class ArticleUn extends HttpServlet {
 				request.setAttribute("corps", article.getCorps());
 				request.setAttribute("auteur", pseudo_aut);
 				request.setAttribute("signature", sign_aut);
-				request.setAttribute("avatar", avatar_aut);
 				
-				System.out.println(avatar_aut);
 				
 				Categorie cat = article.getCategorie();
 				request.setAttribute("categorie", cat.getNom());
