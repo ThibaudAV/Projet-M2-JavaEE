@@ -18,7 +18,7 @@
 					${article.titre} <br> <small>October 13, 2013</small>
 				</h2>
 				<p>${article.corps}</p>
-				<a href="views/Article.jsp?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
+				<a href="Article?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
 				<a href="Article_edit?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.modifier" /></a>
 				<a href="Article_delete?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="general.supprimer" /></a>
 				<hr>
