@@ -8,11 +8,9 @@
 		class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 		aria-expanded="false"> <fmt:message key="article.categorie" /> <span class="caret"></span></a>
 		<ul class="dropdown-menu" role="menu">
-			<li role="presentation" class="dropdown-header">2014</li>
-			<li><a href="#">Informatique</a></li>
-			<li><a href="#">Robotique</a></li>
-			<li><a href="#">Domotique</a></li>
-			<li></li>
+			<c:forEach items="${requestScope.list_cat}" var="categorie"> 
+				<li> <a href="#">${categorie.nom}</a></li>
+			</c:forEach>
 		</ul>
 	</li>
 
