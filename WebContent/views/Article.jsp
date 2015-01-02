@@ -14,13 +14,12 @@
                     <hr>
                 </div>
                 <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="${pageContext.request.contextPath}/static/img/slide-1.jpg" alt="">
-                    <h2>Post Title
+                    <img class="img-responsive img-border img-full" src="${pageContext.request.contextPath}${image}" alt="">
+                    <h2>${requestScope.titre }
                         <br>
-                        <small>October 13, 2013</small>
+                        <small>${requestScope.day} ${requestScope.month} ${requestScope.year}</small>
                     </h2>
-                    <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <a href="#" class="btn btn-default btn-lg">Read More</a>
+                    <p>${requestScope.corps}</p>
                     <hr>
                 </div>
             </div>

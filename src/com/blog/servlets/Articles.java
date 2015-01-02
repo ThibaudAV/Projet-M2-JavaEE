@@ -44,14 +44,6 @@ public class Articles extends HttpServlet {
 				List<Categorie> catlist = daoCat.findAllCategories();
 		        List<Article> list = daoArt.findAllArticles();
 		        
-		       
-		        
-		        for(Article a : list){
-		        	DateTime d = new DateTime(a.getDateCreation());
-		        	
-		         	System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre()+ ", mois : " + d.getMonthOfYear());
-		            
-		        }
 		        // Set des paramètres
 		        request.setAttribute("list_article", list);
 		        request.setAttribute("list_cat", catlist);

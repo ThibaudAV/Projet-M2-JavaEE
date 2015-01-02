@@ -42,14 +42,9 @@
             
             	<c:if test="${!empty article.image }">
                 <img class="img-responsive img-border img-full"
-                    src="${pageContext.request.contextPath}${article.image}" alt="">
-                </c:if>
-				<h2>
-					${article.titre} <br> <small></small>
-                </h2>
-                <p>
-                      ${fn:substring(article.corps,0,200)} ...
-                </p>
+                    src="${pageContext.request.contextPath}${article.image}" alt=""></c:if>
+                 <h2>${article.titre} <br></h2>
+                <p>${fn:substring(article.corps,0,200)} ...</p>
                 <a href="views/Article.jsp?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
                 <hr>
             </div>

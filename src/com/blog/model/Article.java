@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.joda.time.DateTime;
 
 @Entity
 @javax.persistence.Table(name="article")

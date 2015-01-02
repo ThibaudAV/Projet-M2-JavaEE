@@ -19,7 +19,6 @@ import com.blog.model.Categorie;
 import com.blog.model.Utilisateur;
 import com.blog.dao.ArticleDAO;
 import com.blog.dao.CategorieDAO;
-import com.blog.dao.UtilisateurDAO;
 
 /**
  * Servlet implementation class Article_edit
