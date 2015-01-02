@@ -6,17 +6,15 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <h1>
-                   ${requestScope.id_art } </h1>
                     <hr>
-                    <h2 class="intro-text text-center">Company
-                        <strong>blog</strong>
-                    </h2>
+                    <h1 class="intro-text text-center">${requestScope.categorie}
+                    </h1>
                     <hr>
                 </div>
                 <div class="col-lg-12 text-center">
                     <img class="img-responsive img-border img-full" src="${pageContext.request.contextPath}${image}" alt="">
-                    <h2>${requestScope.titre }
+                    <h2>
+                   		 ${requestScope.titre}
                         <br>
                         <small>${requestScope.day}
                         <c:choose>
@@ -37,6 +35,7 @@
                     </h2>
                     <p>${requestScope.corps}</p>
                     <hr>
+                    <fmt:message key='article.written' /> ${requestScope.auteur }
                 </div>
             </div>
         </div>

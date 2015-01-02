@@ -15,6 +15,7 @@ import org.joda.time.DateTime;
 import com.blog.dao.ArticleDAO;
 import com.blog.model.Categorie;
 import com.blog.model.Article;
+import com.blog.model.Utilisateur;
 
 /**
  * Servlet implementation class Article
@@ -46,14 +47,18 @@ public class ArticleUn extends HttpServlet {
 				ArticleDAO daoArt = new ArticleDAO();
 				Article article = daoArt.readArticle(id_art);
 				
+				Utilisateur auteur = article.getAuteur();
+				String pseudo_aut = auteur.getPseudo();
+				
 
 				System.out.println(id_art);
 				
 				request.setAttribute("titre", article.getTitre());
 				request.setAttribute("corps", article.getCorps());
+				request.setAttribute("auteur", pseudo_aut);
 				
 				Categorie cat = article.getCategorie();
-				request.setAttribute("categorie", cat.getId());
+				request.setAttribute("categorie", cat.getNom());
 				
 				DateTime datetime = new DateTime(article.getDateCreation());
 				int day = datetime.getDayOfWeek();
@@ -63,9 +68,6 @@ public class ArticleUn extends HttpServlet {
 				request.setAttribute("day", day);
 				request.setAttribute("month", month);
 				request.setAttribute("year", year);
-				
-				
-				System.out.println("Article n°"+article.getId()+", titre : "+ article.getTitre() + ", date : " +day + month + year);
 				
 				String image = article.getImage();
 				String message_img = "";
