@@ -1,5 +1,6 @@
 package com.blog.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,6 @@ import javax.persistence.TypedQuery;
 
 import com.blog.model.Categorie;
 import com.blog.model.Utilisateur;
-
 import com.blog.model.Article;
 
 public class ArticleDAO {
@@ -140,4 +140,43 @@ private EntityManagerFactory factory = null;
 			}
 		}
 	}
+	
+	// Fonction qui récupère la liste des articles par ann�es de publication
+	/*public List<Article> findArticlesByYear(int year) {
+		EntityManager em = null;
+		try {
+			em = factory.createEntityManager();
+			Date date = em.find(Date.class, year); // récupération de l'ann�e
+			em.getTransaction().begin();
+			// utilisation de l'EntityManager
+			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.date_creation = ?1", Article.class);
+			q.setParameter(1, date) ;
+			return q.getResultList();
+		} finally {
+			if (em != null) {
+				em.getTransaction().commit();
+				em.close();
+			}
+		}
+	} */
+	
+	
+	// Fonction qui récupère la liste des articles par mois de publication
+		/*public List<Article> findArticlesByYear(int month) {
+			EntityManager em = null;
+			try {
+				em = factory.createEntityManager();
+				Date date = em.find(Date.class, mois); // récupération du mois
+				em.getTransaction().begin();
+				// utilisation de l'EntityManager
+				TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.date_creation = ?1", Article.class);
+				q.setParameter(1, date) ;
+				return q.getResultList();
+			} finally {
+				if (em != null) {
+					em.getTransaction().commit();
+					em.close();
+				}
+			}
+		} */
 }

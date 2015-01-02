@@ -9,7 +9,7 @@
 		aria-expanded="false"> <fmt:message key="article.categorie" /> <span class="caret"></span></a>
 		<ul class="dropdown-menu" role="menu">
 			<c:forEach items="${requestScope.list_cat}" var="categorie"> 
-				<li> <a href="#">${categorie.nom}</a></li>
+				<li> <a href="Articles_by?cat=${categorie.id}">${categorie.nom}</a></li>
 			</c:forEach>
 		</ul>
 	</li>
