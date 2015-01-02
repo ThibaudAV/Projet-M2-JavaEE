@@ -24,13 +24,8 @@ public class ArticleUn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String VUE   = "/views/Article.jsp";
 	
-	
-	public static final String CHAMP_TITRE = "title";
-    public static final String CHAMP_CATEGORIE = "categorie";
-    public static final String CHAMP_CORPS = "corps";
     public static final String CHAMP_ID     = "id";
-       
-       
+	       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -39,15 +34,12 @@ public class ArticleUn extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	    /**
-	    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	    */
 		    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 		    {
+		    	System.out.println(request.getParameter(CHAMP_ID));
 		    	
-		    	
-		    	// récupération de l'id de l'article dans le parametre de l'url de la requete
-				int id_art = Integer.parseInt(request.getParameter( CHAMP_ID ));
+		    	// récupération de l'id de l'article dans le parametre de l'url de la requete		    	
+				int id_art = Integer.parseInt(request.getParameter("id"));
 				request.setAttribute("id", id_art);
 				
 				// Récupération de l'article et de ses donnés

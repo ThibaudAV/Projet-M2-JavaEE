@@ -6,7 +6,8 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <h1></h1>
+                    <h1>
+                   ${requestScope.id_art } </h1>
                     <hr>
                     <h2 class="intro-text text-center">Company
                         <strong>blog</strong>
