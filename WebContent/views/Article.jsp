@@ -35,7 +35,8 @@
                     </h2>
                     <p>${requestScope.corps}</p>
                     <hr>
-                    <fmt:message key='article.written' /> ${requestScope.auteur }
+                    <fmt:message key='article.written' /> <img src="${requestScope.avatar }" alt="" />${requestScope.auteur } <br>
+                    ${requestScope.signature }
                 </div>
             </div>
         </div>
