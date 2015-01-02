@@ -50,6 +50,7 @@ public class Profil extends HttpServlet {
 		
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
 		
+		// si l'utilisateur n'est pas connecté 
 		if(user == null) {
             response.sendRedirect(response.encodeRedirectURL(contextPath + "/Connexion") );
             
@@ -83,7 +84,7 @@ public class Profil extends HttpServlet {
 		String nameFrom = getValeurChamp( request, "nameFrom" );
 		System.out.println(nameFrom);
 		
-		if(nameFrom.equals("editProfil") ){
+		if(isEqual(nameFrom,"editProfil") ){
 
 			InscriptionUtilisateurForm form = new InscriptionUtilisateurForm(utilisateurDAO);
 			
@@ -158,5 +159,8 @@ public class Profil extends HttpServlet {
             return valeur;
         }
     }
-
+    // si 2 objet sont equal et ne retourne pas de nullPointerException 
+    public static boolean isEqual(Object o1, Object o2) {
+        return o1 == o2 || (o1 != null && o1.equals(o2));
+    }
 }
