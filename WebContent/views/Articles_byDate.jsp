@@ -57,7 +57,7 @@
               <hr>
           </div>
 
-			<c:forEach items="${requestScope.liste_by}" var="article" begin="0" end="4">
+			<c:forEach items="${requestScope.liste_by}" var="article">
             <div class="col-lg-12 text-center">
             
             
@@ -70,15 +70,7 @@
                 <hr>
             </div>
         </c:forEach>
-        
-        
-        
-        <div class="col-lg-12 text-center">
-			<ul class="pager">
-				<li class="previous"><a href="#">&larr; <fmt:message key="nav.older" /></a></li>
-				<li class="next"><a href="#"><fmt:message key="nav.newer" /> &rarr;</a></li>
-			</ul>
-		</div>
+
 </div>
 
 </div>
