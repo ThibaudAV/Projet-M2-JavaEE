@@ -12,7 +12,7 @@
                     <hr>
                 </div>
                 <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="${pageContext.request.contextPath}${image}" alt="">
+                    <img class="img-responsive img-border img-full" src="${pageContext.request.contextPath}/static/img/articles/${image}" alt="">
                     <h2>
                    		 ${requestScope.titre}
                         <br>

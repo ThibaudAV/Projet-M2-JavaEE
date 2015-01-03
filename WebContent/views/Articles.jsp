@@ -35,14 +35,15 @@
 <div class="">
 	<div class="box">
 		<div class="col-lg-12">
-
-			<c:forEach items="${requestScope.list_article}" var="article" begin="0" end="4">
+			<c:set var="begin" value="0"/>
+			<c:set var="end" value="4"/>
+			<c:forEach items="${requestScope.list_article}" var="article" begin="${begin}" end="${end}">
             <div class="col-lg-12 text-center">
             
             
             	<c:if test="${!empty article.image }">
                 <img class="img-responsive img-border img-full"
-                    src="${pageContext.request.contextPath}${article.image}" alt=""></c:if>
+                    src="${pageContext.request.contextPath}/static/img/articles/${article.image}" alt=""></c:if>
                  <h2>${article.titre}  <br> 
 					<small><fmt:formatDate value="${article.getDateCreation()}" pattern="dd MMMMMMMMMMMM yyyy"/></small>
                  </h2>
@@ -56,14 +57,21 @@
         
         <div class="col-lg-12 text-center">
 			<ul class="pager">
-				<li class="previous"><a href="#">&larr; <fmt:message key="nav.older" /></a></li>
-				<li class="next"><a href="#"><fmt:message key="nav.newer" /> &rarr;</a></li>
+				<li class="previous"><a href="javascript:AfficherPlus()">&larr; <fmt:message key="nav.older" /></a></li>
+				<li class="next"><a href="javascript:Newer()"><fmt:message key="nav.newer" /> &rarr;</a></li>
 			</ul>
 		</div>
 	</div>
 </div>
 
 </div>
+
+<script type="text/javascript">
+/*function AfficherPlus()
+{
+	${end} += 4;	
+}*/
+</script>
 
 
 <%@ include file="_footer.jsp"%>
