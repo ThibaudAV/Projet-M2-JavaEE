@@ -44,7 +44,10 @@
                  <h2>${article.titre}  <br> 
 					<small><fmt:formatDate value="${article.getDateCreation()}" pattern="dd MMMMMMMMMMMM yyyy"/></small>
                  </h2>
-                <p>${fn:substring(article.corps,0,200)} ...</p>
+                <p>
+				<% pageContext.setAttribute("newLineChar", "\n"); %>
+				${fn:replace(fn:substring(article.corps,0,200), newLineChar, "<br>")} ...
+                </p>
                 <a href="Article?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
                 <hr>
             </div>

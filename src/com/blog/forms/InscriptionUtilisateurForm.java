@@ -44,6 +44,7 @@ public final class InscriptionUtilisateurForm {
         String t_and_c = getValeurChamp( request, T_AND_C );
         String signature = getValeurChamp( request, CHAMP_SIGNATURE );
 
+        
         Utilisateur utilisateur = new Utilisateur();
 
         try {
