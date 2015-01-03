@@ -20,7 +20,7 @@ public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     public static final String VUE_CONNEXION     = "/views/Connexion.jsp";
-    public static final String VUE_ACCUEIL     = "/views/Articles.jsp";
+    public static final String VUE_ACCUEIL     = "/";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -60,7 +60,8 @@ public class Connexion extends HttpServlet {
     	if(user != null) {
     		
     		session.setAttribute("user",user);
-            this.getServletContext().getRequestDispatcher( VUE_ACCUEIL ).forward( request, response );
+            String contextPath = request.getContextPath();
+    		response.sendRedirect(contextPath + VUE_ACCUEIL);
     	} else {
     		session.setAttribute( "user", null );
             request.setAttribute("error", "Invalid pseudo or password" );
