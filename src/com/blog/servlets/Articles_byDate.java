@@ -11,54 +11,56 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.blog.dao.ArticleDAO;
 import com.blog.dao.CategorieDAO;
-import com.blog.dao.UtilisateurDAO;
 import com.blog.model.Article;
 import com.blog.model.Categorie;
 
 /**
- * Servlet implementation class Articles_by
+ * Servlet implementation class Articles_byDate
  */
-@WebServlet("/Articles_by")
-public class Articles_by extends HttpServlet {
+@WebServlet("/Articles_byDate")
+public class Articles_byDate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	public static final String VUE   = "/views/Articles_by.jsp";
        
+	public static final String VUE   = "/views/Articles_byDate.jsp";
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Articles_by() {
+    public Articles_byDate() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int id_cat = Integer.parseInt(request.getParameter("cat"));
+		String mois = request.getParameter("mois");
+		String annee = request.getParameter("annee");
 		
 		ArticleDAO daoArt = new ArticleDAO();
-		CategorieDAO daoCat = new CategorieDAO();
+		List<Article> list = null;
 		
-		Categorie cat = daoCat.readCategorie(id_cat);
-		String catname = cat.getNom();
+		if(mois != null){
+			System.out.println("ok mois : "+mois);
+			int month = Integer.parseInt(mois);
+			
+			list = daoArt.findArticlesByMonth(month);
+			request.setAttribute("month", month);
+			request.setAttribute("year", 2015);
+			
+		} else if (annee != null){
+			System.out.println("ok annee : "+annee);
+			int year = Integer.parseInt(annee);
+			
+			list = daoArt.findArticlesByYear(year);
+			request.setAttribute("year", year);
+		}
 		
-		List<Categorie> catlist = daoCat.findAllCategories();
-		List<Article> list = daoArt.findArticlesByCategorie(id_cat);
-		//List<Article> list2 = daoArt.findArticlesByMonth(12);
-		/*for(Article a : list2)
-		{
-			System.out.println(a.getTitre() + a.getCategorie());
-		}*/
-
-		request.setAttribute("catname", catname);
+		request.setAttribute("liste_by", list);
 		
-		request.setAttribute("list_cat", catlist);
-		request.setAttribute("liste_bycat", list);
-		
-		 this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
-
-		
+		this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
 	}
 
 	/**

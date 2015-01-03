@@ -18,7 +18,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.blog.dao.ArticleDAO;
 import com.blog.dao.CategorieDAO;
-import com.blog.dao.UtilisateurDAO;
 import com.blog.model.Article;
 import com.blog.model.Categorie;
 import com.blog.model.Utilisateur;
