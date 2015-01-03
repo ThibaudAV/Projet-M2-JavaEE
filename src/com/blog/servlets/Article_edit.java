@@ -141,23 +141,23 @@ public class Article_edit extends HttpServlet {
             			System.out.println("FieldName : "+item.getFieldName());
             			if(item.getFieldName().equals(CHAMP_TITRE)){
             				// Récupération du contenu du champ titre de l'article 
-                			titre = item.getString();
+                			titre = item.getString("UTF-8");
                 			
             			} else
             			if(item.getFieldName().equals(CHAMP_CATEGORIE)){
             				// Récupération du contenu du champ catégorie
-            				categorie = item.getString();
-                		    System.out.println("Cat : "+categorie);
+            				categorie = item.getString("UTF-8");
+                		  //  System.out.println("Cat : "+categorie);
             			} else 
             			if(item.getFieldName().equals(CHAMP_CORPS)){
             				// Récupération du contenu du champ corps 
-            				corps = item.getString();
-                		    System.out.println("Corps : "+corps);
+            				corps = item.getString("UTF-8");
+                		   // System.out.println("Corps : "+corps);
             			} else
             			if(item.getFieldName().equals(CHAMP_ID)){
             				// Récupération du contenu du champ id
             				id = item.getString();
-                		    System.out.println("id : "+id);
+                		    //System.out.println("id : "+id);
             			}
             		}
                 }

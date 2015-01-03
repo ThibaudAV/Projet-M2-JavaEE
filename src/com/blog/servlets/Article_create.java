@@ -109,7 +109,7 @@ public class Article_create extends HttpServlet {
                         if ( name != null && !name.isEmpty() ) { 
 	                        // new file name
 	                        fileName = auteur.getPseudo() + "_" + name;
-	                        System.out.println("fileName : "+fileName);
+	                        //System.out.println("fileName : "+fileName);
 	                        // le chemin du serveur + dossier articles + nouveau nom du fichier
 	                        item.write( new File(getServletContext().getRealPath(File.separator)+ UPLOAD_DIRECTORY + File.separator + fileName));
                         }
@@ -117,18 +117,18 @@ public class Article_create extends HttpServlet {
             			System.out.println("FieldName : "+item.getFieldName());
             			if(item.getFieldName().equals(CHAMP_TITRE)){
             				// Récupération du contenu du champ titre de l'article 
-                			titre = item.getString();
+                			titre = item.getString("UTF-8");
                 			
             			}
             			if(item.getFieldName().equals(CHAMP_CATEGORIE)){
             				// Récupération du contenu du champ catégorie
-            				categorie = item.getString();
-                		    System.out.println("Cat : "+categorie);
+            				categorie = item.getString("UTF-8");
+                		    //System.out.println("Cat : "+categorie);
             			}
             			if(item.getFieldName().equals(CHAMP_CORPS)){
             				// Récupération du contenu du champ corps 
-            				corps = item.getString();
-                		    System.out.println("Corps : "+corps);
+            				corps = item.getString("UTF-8");
+                		    //System.out.println("Corps : "+corps);
             			}
             			
             		}
@@ -150,6 +150,7 @@ public class Article_create extends HttpServlet {
 	    
 	    // construction de notre nouvel article et ajout à notre base
 	    Article article = new Article(titre, corps, selectCat, fileName, auteur, d);
+	    
 	    daoArt.createArticle(article);
 	   
 	    this.getServletContext().getRequestDispatcher( VUE_SUCCES ).forward( request, response );

@@ -36,8 +36,6 @@
 		<div class="col-lg-12">
 			<c:forEach items="${requestScope.list_article}" var="article">
             <div class="col-lg-12 text-center">
-            
-            
             	<c:if test="${!empty article.image }">
                 <img class="img-responsive img-border img-full"
                     src="${pageContext.request.contextPath}/static/img/articles/${article.image}" alt=""></c:if>
