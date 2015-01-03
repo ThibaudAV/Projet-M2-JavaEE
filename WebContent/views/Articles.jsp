@@ -19,13 +19,12 @@
 		class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 		aria-expanded="false"><fmt:message key="general.archive" /><span class="caret"></span></a>
 		<ul class="dropdown-menu" role="menu">
-			<li role="presentation" class="dropdown-header">2014</li>
-			<li><a href="#">Janvier</a></li>
-			<li><a href="#">Février</a></li>
-			<li><a href="#">Mars</a></li>
-			<li><a href="#">Avril</a></li>
+			<li role="presentation" class="dropdown-header">2015</li>
+			<li><a href="Articles_byDate?mois=1"><fmt:message key="months.january" /></a></li>
 			<li class="divider"></li>
-			<li><a href="#">2013</a></li>
+			<li><a href="Articles_byDate?annee=2014">2014</a></li>
+			<li class="divider"></li>
+			<li><a href="Articles_byDate?annee=2013">2013</a></li>
 			<li></li>
 		</ul>
 	</li>
@@ -42,7 +41,7 @@
             
             	<c:if test="${!empty article.image }">
                 <img class="img-responsive img-border img-full"
-                    src="${pageContext.request.contextPath}${article.image}" alt=""></c:if>
+                    src="${pageContext.request.contextPath}/static/img/articles/${article.image}" alt=""></c:if>
                  <h2>${article.titre} <br></h2>
                 <p>${fn:substring(article.corps,0,200)} ...</p>
                 <a href="Article?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>

@@ -6,7 +6,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
+import javax.persistence.criteria.Root;
+
+import org.joda.time.DateTime;
 
 import com.blog.model.Categorie;
 import com.blog.model.Utilisateur;
@@ -141,17 +148,24 @@ private EntityManagerFactory factory = null;
 		}
 	}
 	
-	// Fonction qui récupère la liste des articles par ann�es de publication
-	/*public List<Article> findArticlesByYear(int year) {
+	// Fonction qui récupère la liste des articles par ann�es de publication
+	public List<Article> findArticlesByYear(int year) {
 		EntityManager em = null;
 		try {
 			em = factory.createEntityManager();
-			Date date = em.find(Date.class, year); // récupération de l'ann�e
+			// Utilisation d'un CriteriaBuilder pour récupérer le Mois d'une date (fonction non prédéfinie en JPQL)
+			CriteriaBuilder cb = em.getCriteriaBuilder();
+			
 			em.getTransaction().begin();
-			// utilisation de l'EntityManager
-			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE EXTRACT (YEAR FROM a.date_creation) = ?1", Article.class);
-			q.setParameter(1, date) ;
-			return q.getResultList();
+
+			CriteriaQuery<Article> cq = cb.createQuery(Article.class); //requête
+			Root<Article> e = cq.from(Article.class); // FROM base Article
+			// WHERE année = l'année passée en apramètre 
+			cq.where(cb.equal(cb.function("year", Integer.class, e.get("date_creation")) , cb.parameter(Integer.class, "y")));
+			Query query = (Query) em.createQuery(cq);
+			query.setParameter("y", year);
+			List<Article> result = query.getResultList();
+			return result;
 		} finally {
 			if (em != null) {
 				em.getTransaction().commit();
@@ -160,23 +174,33 @@ private EntityManagerFactory factory = null;
 		}
 	} 
 	
+	 
+	
 	
 	// Fonction qui récupère la liste des articles par mois de publication
 		public List<Article> findArticlesByMonth(int month) {
 			EntityManager em = null;
 			try {
 				em = factory.createEntityManager();
-				Date date = em.find(Date.class, month); // récupération du mois
+				// Utilisation d'un CriteriaBuilder pour récupérer le Mois d'une date (fonction non prédéfinie en JPQL)
+				CriteriaBuilder cb = em.getCriteriaBuilder();
+				
 				em.getTransaction().begin();
-				// utilisation de l'EntityManager
-				TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE EXTRACT (MONTH FROM a.date_creation) = ?1", Article.class);
-				q.setParameter(1, date) ;
-				return q.getResultList();
+
+				CriteriaQuery<Article> cq = cb.createQuery(Article.class); //requête
+				Root<Article> e = cq.from(Article.class); // FROM base Article
+				// WHERE mois de date_creation = paramètre month && l'année est l'année courante (2015)
+				cq.where(cb.equal(cb.function("month", Integer.class, e.get("date_creation")) , cb.parameter(Integer.class, "m")) , cb.equal(cb.function("year", Integer.class, e.get("date_creation")) , cb.parameter(Integer.class, "y")));
+				Query query = (Query) em.createQuery(cq);
+				query.setParameter("m", month);
+				query.setParameter("y", 2015);
+				List<Article> result = query.getResultList();
+				return result; 
 			} finally {
 				if (em != null) {
 					em.getTransaction().commit();
 					em.close();
 				}
 			}
-		}*/ 
+		}
 }
