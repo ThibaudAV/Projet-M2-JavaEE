@@ -169,7 +169,7 @@ private EntityManagerFactory factory = null;
 				Date date = em.find(Date.class, mois); // récupération du mois
 				em.getTransaction().begin();
 				// utilisation de l'EntityManager
-				TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.date_creation = ?1", Article.class);
+				TypedQuery<Article> q = em.createQuery("SELECT EXTRACT MONTH FROM Article a WHERE a.date_creation = ?1", Article.class);
 				q.setParameter(1, date) ;
 				return q.getResultList();
 			} finally {

@@ -78,7 +78,7 @@
                     <input type="checkbox" value="remember-me">
                     <fmt:message key="connection.remember" />
                 </label>
-                <a href="#" class="pull-right need-help"><fmt:message key="connection.help" /></a><span class="clearfix"></span>
+                <span class="clearfix"></span>
                 </form>
             <a href="<c:url value="/Inscription"/>" class="text-center new-account"><fmt:message key="connection.account" /></a>
         </div>
