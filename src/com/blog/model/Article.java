@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+
 @Entity
 @javax.persistence.Table(name="article")
 public class Article {
@@ -35,7 +36,6 @@ public class Article {
 	private Utilisateur auteur;
 	
 	private Date date_creation;
-	
 	
 	public Article(){
 		super();

@@ -34,6 +34,7 @@ public final class InscriptionUtilisateurForm {
     public String getResultat() {
         return resultat;
     }
+    
 
     public Utilisateur creerUtilisateur( HttpServletRequest request ) {
         String pseudo = getValeurChamp( request, CHAMP_PSEUDO );
@@ -87,6 +88,33 @@ public final class InscriptionUtilisateurForm {
         }
 
         return utilisateur;
+    }
+
+    public Utilisateur updateUtilisateur(Utilisateur user, HttpServletRequest request ) {
+
+        String email = getValeurChamp( request, CHAMP_EMAIL );
+        String signature = getValeurChamp( request, CHAMP_SIGNATURE );
+
+
+
+        user.setSignature(signature);
+        try {
+            validationEmail( email );
+        } catch ( Exception e ) {
+            setErreur( CHAMP_EMAIL, e.getMessage() );
+        }
+        user.setEmail( email );
+        
+        if ( erreurs.isEmpty() ) {
+        	/* On créé l'utilisateur */
+        	utilisateurDAO.updateUtilisateur(user.getId(), email, signature);
+            resultat = "Succès de la création du client.";
+        } else {
+            resultat = "Échec de la création du client.";
+        }
+    	
+        return user;
+    	
     }
 
     private void validationPseudo( String pseudo ) throws Exception {

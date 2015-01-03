@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +32,7 @@ public class Article_create extends HttpServlet {
 	
 	public static final String VUE_SUCCES   = "/Article_my"; 
     public static final String VUE_FORM     = "/views/Article_create.jsp";
+    public static final String VUE_CONNEXION    = "/Connexion";
     
     public static final String CHAMP_TITRE = "title";
     public static final String CHAMP_CATEGORIE = "categorie";
@@ -48,13 +50,21 @@ public class Article_create extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		Utilisateur user = (Utilisateur) session.getAttribute("user");
+		if(user == null) {
+			this.getServletContext().getRequestDispatcher( VUE_CONNEXION ).forward( request, response );
+            
+		} else {
+			CategorieDAO daoCat = new CategorieDAO();
+			
+			List<Categorie> list = daoCat.findAllCategories();
+			request.setAttribute("list_cat", list);
+			
+			this.getServletContext().getRequestDispatcher( VUE_FORM ).forward( request, response );
+		}
 		
-		CategorieDAO daoCat = new CategorieDAO();
-		
-		List<Categorie> list = daoCat.findAllCategories();
-		request.setAttribute("list_cat", list);
-		
-		this.getServletContext().getRequestDispatcher( VUE_FORM ).forward( request, response );
 	}
 
 	/**

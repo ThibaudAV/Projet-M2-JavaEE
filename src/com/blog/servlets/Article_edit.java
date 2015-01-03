@@ -30,6 +30,7 @@ public class Article_edit extends HttpServlet {
 	
 	public static final String VUE_FORM     = "/views/Article_edit.jsp";
 	public static final String VUE_SUCCES   = "/Article_my"; 
+    public static final String VUE_CONNEXION    = "/Connexion";
 	
 	public static final String CHAMP_TITRE = "title";
     public static final String CHAMP_CATEGORIE = "categorie";
@@ -48,40 +49,46 @@ public class Article_edit extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		// récupération de l'id de l'article dans le parametre de l'url de la requete
-		int id_art = Integer.parseInt(request.getParameter( CHAMP_ID ));
-		request.setAttribute("id", id_art);
-		
-		// Récupération de l'article et de ses donnés
-		ArticleDAO daoArt = new ArticleDAO();
-		Article article = daoArt.readArticle(id_art);
-		
-		request.setAttribute("titre", article.getTitre());
-		request.setAttribute("corps", article.getCorps());
-		
-		Categorie cat = article.getCategorie();
-		request.setAttribute("categorie", cat.getId());
-		
-		
-		String image = article.getImage();
-		String message_img = "";
-		if(image != null){
-//			message_img = "<fmt:message key='article.helpnewimage' />.";
-			message_img = "helpnewimage";
+		HttpSession session = request.getSession();
+		Utilisateur user = (Utilisateur) session.getAttribute("user");
+		if(user == null) {
+			this.getServletContext().getRequestDispatcher( VUE_CONNEXION ).forward( request, response );
+            
 		} else {
-//			message_img = "<fmt:message key='article.helpimage' />.";
-			message_img = "helpimage";
+			// récupération de l'id de l'article dans le parametre de l'url de la requete
+			int id_art = Integer.parseInt(request.getParameter( CHAMP_ID ));
+			request.setAttribute("id", id_art);
+			
+			// Récupération de l'article et de ses donnés
+			ArticleDAO daoArt = new ArticleDAO();
+			Article article = daoArt.readArticle(id_art);
+			
+			request.setAttribute("titre", article.getTitre());
+			request.setAttribute("corps", article.getCorps());
+			
+			Categorie cat = article.getCategorie();
+			request.setAttribute("categorie", cat.getId());
+			
+			
+			String image = article.getImage();
+			String message_img = "";
+			if(image != null){
+	//			message_img = "<fmt:message key='article.helpnewimage' />.";
+				message_img = "helpnewimage";
+			} else {
+	//			message_img = "<fmt:message key='article.helpimage' />.";
+				message_img = "helpimage";
+			}
+			request.setAttribute("msg_img", message_img);
+			
+			// list des catégories
+			CategorieDAO daoCat = new CategorieDAO();
+			
+			List<Categorie> list = daoCat.findAllCategories();
+			request.setAttribute("list_cat", list);
+			
+			this.getServletContext().getRequestDispatcher( VUE_FORM ).forward( request, response );
 		}
-		request.setAttribute("msg_img", message_img);
-		
-		// list des catégories
-		CategorieDAO daoCat = new CategorieDAO();
-		
-		List<Categorie> list = daoCat.findAllCategories();
-		request.setAttribute("list_cat", list);
-		
-		this.getServletContext().getRequestDispatcher( VUE_FORM ).forward( request, response );
 	}
 
 	/**

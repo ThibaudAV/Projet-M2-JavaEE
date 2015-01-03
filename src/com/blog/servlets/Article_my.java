@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.joda.time.DateTime;
+
 import com.blog.model.Article;
 import com.blog.model.Utilisateur;
 import com.blog.dao.ArticleDAO;
@@ -21,6 +23,7 @@ public class Article_my extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public static final String VUE   = "/views/Article_my.jsp"; 
+    public static final String VUE_CONNEXION    = "/Connexion";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,33 +37,50 @@ public class Article_my extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArticleDAO daoArt = new ArticleDAO();
-		UtilisateurDAO daoUt = new UtilisateurDAO();
-		
+
 		// récupère l'utilisateur
 		HttpSession session = request.getSession();
-	    Utilisateur user = (Utilisateur) session.getAttribute("user");
-	    Utilisateur auteur;
-	    if (user != null){
-	    	auteur = user;
-	    	System.out.println("UserY : "+auteur.getPseudo());
-	    } else{
-	    	auteur = daoUt.readUtilisateur(1);
-	    	System.out.println("UserN : "+auteur.getPseudo());
-	    }
-
-		List<Article> list = daoArt.findArticlesByAuteur(auteur.getId());
-		for(Article a : list){
-			System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre());
+		Utilisateur user = (Utilisateur) session.getAttribute("user");
+		if(user == null) {
+			this.getServletContext().getRequestDispatcher( VUE_CONNEXION ).forward( request, response );
+            
+		} else {
+			ArticleDAO daoArt = new ArticleDAO();
+			UtilisateurDAO daoUt = new UtilisateurDAO();
 			
+		    Utilisateur auteur = user;
+		    
+		    
+		    DateTime datetime;
+		    int day =0; 
+			int month =0; 
+			int year =0; 
+
+	
+			List<Article> list = daoArt.findArticlesByAuteur(auteur.getId());
+			for(Article a : list){
+				
+				
+				datetime = new DateTime(a.getDateCreation());
+				
+				 day = datetime.getDayOfWeek();
+				 month = datetime.getMonthOfYear();
+				 year = datetime.getYear();
+				
+				System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre() + day + month + year);
+				
+			}
+			
+			
+			// Set des paramètres
+			//request.setAttribute("datetime", datetime);
+			request.setAttribute("day", day);
+			request.setAttribute("month", month);
+			request.setAttribute("year", year);
+			request.setAttribute("list_article", list);
+			
+			this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 		}
-		
-		
-		// Set des paramètres
-		request.setAttribute("list_article", list);
-		
-		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 
 	/**

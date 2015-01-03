@@ -54,17 +54,16 @@ public class UtilisateurDAO {
 	}
 	
 	// Fonction de mise-à-jour d'un Utilisateur existant dans notre base
-	public void updateUtilisateur(Utilisateur util) {
+	public void updateUtilisateur(int idUser,String email,String signature) {
 		EntityManager em = null;
-		int id_ut = util.getId();
+		int id_ut = idUser;
 		try {
 			em = factory.createEntityManager();
 			Utilisateur ut = em.find(Utilisateur.class, id_ut);
 			em.getTransaction().begin();
-			ut.setEmail(util.getEmail());
-			//ut.setPassword(util.getPassword()); je ne vois pas trop comment faire...
-			ut.setSignature(util.getSignature());
-			ut.setAvatar(util.getAvatar());
+			ut.setEmail(email);
+			ut.setSignature(signature);
+//			ut.setAvatar(util.getAvatar());
 		} finally {
 			if (em != null) {
 				em.getTransaction().commit();

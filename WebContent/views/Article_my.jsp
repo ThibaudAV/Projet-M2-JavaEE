@@ -15,10 +15,25 @@
 					src="${pageContext.request.contextPath}/static/img/articles/${article.image}"
 					alt="">
 				<h2>
-					${article.titre} <br> <small>October 13, 2013</small>
+					${article.titre} <br> <small>${requestScope.day}
+                        <c:choose>
+                        	<c:when test="${requestScope.month == 1}"> <fmt:message key='months.january' /></c:when>
+                        	<c:when test="${requestScope.month == 2}"> <fmt:message key='months.february' /></c:when>
+                        	<c:when test="${requestScope.month == 3}"> <fmt:message key='months.march' /></c:when>
+                        	<c:when test="${requestScope.month == 4}"> <fmt:message key='months.april' /></c:when>
+                        	<c:when test="${requestScope.month == 5}"> <fmt:message key='months.may' /></c:when>
+                        	<c:when test="${requestScope.month == 6}"> <fmt:message key='months.june' /></c:when>
+                        	<c:when test="${requestScope.month == 7}"> <fmt:message key='months.july' /></c:when>
+                        	<c:when test="${requestScope.month == 8}"> <fmt:message key='months.august' /></c:when>
+                        	<c:when test="${requestScope.month == 9}"> <fmt:message key='months.september' /></c:when>
+                        	<c:when test="${requestScope.month == 10}"> <fmt:message key='months.october' /></c:when>
+                        	<c:when test="${requestScope.month == 11}"> <fmt:message key='months.november' /></c:when>
+                        	<c:when test="${requestScope.month == 12}"> <fmt:message key='months.december' /></c:when>
+                        </c:choose>
+                          ${requestScope.year}</small>
 				</h2>
 				<p>${article.corps}</p>
-				<a href="views/Article.jsp?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
+				<a href="Article?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
 				<a href="Article_edit?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.modifier" /></a>
 				<a href="Article_delete?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="general.supprimer" /></a>
 				<hr>

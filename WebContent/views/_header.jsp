@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale.language}" scope="session" />
 
@@ -77,8 +78,12 @@
                     </li>
                     <li class="dropdown">
           				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-			          ${language == 'en' ? 'English' : ''}
-			          ${language == 'fr' ? 'Francais' : ''} <span class="caret"></span></a>
+			          <c:if test="${language == 'en'}">
+			          	<img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/en-EN.png"> English
+			          </c:if>
+			          <c:if test="${language == 'fr'}">
+			          	<img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/fr-FR.png"> Francais
+			          </c:if> <span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
 			            <li><a href="?language=en"><img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/en-EN.png"> English</a></li>
 			            <li><a href="?language=fr"><img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/fr-FR.png"> Francais</a></li>
@@ -102,7 +107,7 @@
   							<c:otherwise>
 			                    <li class="dropdown">
 			          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-			          					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> <fmt:message key="general.signin" /><span class="caret"></span>
+			          					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> <fmt:message key="general.signin" /> <span class="caret"></span>
 			          				</a>
 						          <ul class="dropdown-menu" role="menu">
 						            <li><a href="<c:url value="/Inscription"/>"> <fmt:message key="general.register" /></a></li>
