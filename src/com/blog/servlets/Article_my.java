@@ -60,21 +60,23 @@ public class Article_my extends HttpServlet {
 			List<Article> list = daoArt.findArticlesByAuteur(auteur.getId());
 			for(Article a : list){
 				
+				
 				datetime = new DateTime(a.getDateCreation());
+				
 				 day = datetime.getDayOfWeek();
 				 month = datetime.getMonthOfYear();
 				 year = datetime.getYear();
-				 
-				request.setAttribute("day", day);
-				request.setAttribute("month", month);
-				request.setAttribute("year", year);
+				
 				System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre() + day + month + year);
 				
 			}
 			
 			
 			// Set des paramètres
-
+			//request.setAttribute("datetime", datetime);
+			request.setAttribute("day", day);
+			request.setAttribute("month", month);
+			request.setAttribute("year", year);
 			request.setAttribute("list_article", list);
 			
 			this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
