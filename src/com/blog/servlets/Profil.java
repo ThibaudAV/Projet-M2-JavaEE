@@ -68,8 +68,9 @@ public class Profil extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		// L'encodage en UTF8
+		request.setCharacterEncoding("UTF-8");
+        
 		HttpSession session = request.getSession();
         String contextPath = request.getContextPath();
 		

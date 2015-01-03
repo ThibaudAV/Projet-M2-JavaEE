@@ -42,6 +42,10 @@ public class Articles_byDate extends HttpServlet {
 		ArticleDAO daoArt = new ArticleDAO();
 		List<Article> list = null;
 		
+		CategorieDAO daoCat = new CategorieDAO();
+		List<Categorie> catlist = daoCat.findAllCategories();
+		request.setAttribute("list_cat", catlist);
+		
 		if(mois != null){
 			System.out.println("ok mois : "+mois);
 			int month = Integer.parseInt(mois);

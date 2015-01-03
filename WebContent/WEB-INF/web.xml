@@ -8,8 +8,9 @@
   </context-param>
   <display-name>Projet-M2-JavaEE</display-name>
   <welcome-file-list>
-    <welcome-file>views/Articles.jsp</welcome-file>
+    <welcome-file>Articles</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>Articles</servlet-name>
     <servlet-class>com.blog.servlets.Articles</servlet-class>

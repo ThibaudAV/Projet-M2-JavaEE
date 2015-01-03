@@ -23,7 +23,7 @@ public class Inscription extends HttpServlet {
     public static final String ATT_UTILISATEUR = "utilisateur";
     public static final String ATT_FORM   = "form";
     
-    public static final String VUE_SUCCES   = "/views/Articles.jsp";
+    public static final String VUE_SUCCES   = "/Connexion";
     public static final String VUE_FORM     = "/views/Inscription.jsp";
     
     

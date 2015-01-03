@@ -102,6 +102,7 @@ public class Article_create extends HttpServlet {
             	FileItem item; 
             	for(int i = 0; i < multiparts.size(); i++){
             		item = multiparts.get(i);
+            		
             		if(!item.isFormField()){
                         String name = new File(item.getName()).getName();
                         System.out.println("Name : "+name);
@@ -114,14 +115,22 @@ public class Article_create extends HttpServlet {
 	                        item.write( new File(getServletContext().getRealPath(File.separator)+ UPLOAD_DIRECTORY + File.separator + fileName));
                         }
             		} else {
+            			// pour l'encodage UTF8
+                		String enUTF8 = new String (item.getString().getBytes ("iso-8859-1"), "UTF-8");
+                		
             			System.out.println("FieldName : "+item.getFieldName());
             			if(item.getFieldName().equals(CHAMP_TITRE)){
             				// Récupération du contenu du champ titre de l'article 
+<<<<<<< HEAD
                 			titre = item.getString("UTF-8");
+=======
+                			titre = enUTF8;
+>>>>>>> origin/master
                 			
             			}
             			if(item.getFieldName().equals(CHAMP_CATEGORIE)){
             				// Récupération du contenu du champ catégorie
+<<<<<<< HEAD
             				categorie = item.getString("UTF-8");
                 		    //System.out.println("Cat : "+categorie);
             			}
@@ -129,6 +138,15 @@ public class Article_create extends HttpServlet {
             				// Récupération du contenu du champ corps 
             				corps = item.getString("UTF-8");
                 		    //System.out.println("Corps : "+corps);
+=======
+            				categorie = enUTF8;
+                		    System.out.println("Cat : "+categorie);
+            			}
+            			if(item.getFieldName().equals(CHAMP_CORPS)){
+            				// Récupération du contenu du champ corps 
+            				corps = enUTF8;
+                		    System.out.println("Corps : "+corps);
+>>>>>>> origin/master
             			}
             			
             		}

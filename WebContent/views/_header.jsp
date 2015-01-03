@@ -85,8 +85,8 @@
 			          	<img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/fr-FR.png"> Francais
 			          </c:if> <span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
-			            <li><a href="?language=en"><img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/en-EN.png"> English</a></li>
-			            <li><a href="?language=fr"><img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/fr-FR.png"> Francais</a></li>
+			            <li><a href="?language=en&${pageContext.request.queryString}"><img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/en-EN.png"> English</a></li>
+			            <li><a href="?language=fr&${pageContext.request.queryString}"><img alt="Brand" width="32px" height="32px" src="${pageContext.request.contextPath}/static/img/fr-FR.png"> Francais</a></li>
 			          </ul>
 			        </li>
                     	<c:choose> 
