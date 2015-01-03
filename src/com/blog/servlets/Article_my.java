@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.joda.time.DateTime;
+
 import com.blog.model.Article;
 import com.blog.model.Utilisateur;
 import com.blog.dao.ArticleDAO;
@@ -47,15 +49,32 @@ public class Article_my extends HttpServlet {
 			UtilisateurDAO daoUt = new UtilisateurDAO();
 			
 		    Utilisateur auteur = user;
+		    
+		    
+		    DateTime datetime;
+		    int day =0; 
+			int month =0; 
+			int year =0; 
+
 	
 			List<Article> list = daoArt.findArticlesByAuteur(auteur.getId());
 			for(Article a : list){
-				System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre());
+				
+				datetime = new DateTime(a.getDateCreation());
+				 day = datetime.getDayOfWeek();
+				 month = datetime.getMonthOfYear();
+				 year = datetime.getYear();
+				 
+				request.setAttribute("day", day);
+				request.setAttribute("month", month);
+				request.setAttribute("year", year);
+				System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre() + day + month + year);
 				
 			}
 			
 			
 			// Set des paramètres
+
 			request.setAttribute("list_article", list);
 			
 			this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

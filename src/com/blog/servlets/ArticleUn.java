@@ -51,12 +51,11 @@ public class ArticleUn extends HttpServlet {
 				String pseudo_aut = auteur.getPseudo();
 				String sign_aut = auteur.getSignature();
 				
-
-				System.out.println(id_art);
 				
+				request.setAttribute("auteur",auteur);
 				request.setAttribute("titre", article.getTitre());
 				request.setAttribute("corps", article.getCorps());
-				request.setAttribute("auteur", pseudo_aut);
+				request.setAttribute("pseudo", pseudo_aut);
 				request.setAttribute("signature", sign_aut);
 				
 				
