@@ -1,6 +1,7 @@
 package com.blog.servlets;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -50,33 +51,17 @@ public class Article_my extends HttpServlet {
 			
 		    Utilisateur auteur = user;
 		    
-		    
-		    DateTime datetime;
-		    int day =0; 
-			int month =0; 
-			int year =0; 
 
 	
 			List<Article> list = daoArt.findArticlesByAuteur(auteur.getId());
 			for(Article a : list){
-				
-				
-				datetime = new DateTime(a.getDateCreation());
-				
-				 day = datetime.getDayOfWeek();
-				 month = datetime.getMonthOfYear();
-				 year = datetime.getYear();
-				
-				System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre() + day + month + year);
+			
+				System.out.println("Article n°"+a.getId()+", titre : "+a.getTitre() + a.getDateCreation().toString());
 				
 			}
 			
 			
 			// Set des paramètres
-			//request.setAttribute("datetime", datetime);
-			request.setAttribute("day", day);
-			request.setAttribute("month", month);
-			request.setAttribute("year", year);
 			request.setAttribute("list_article", list);
 			
 			this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

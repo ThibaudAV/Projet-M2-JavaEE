@@ -149,7 +149,7 @@ private EntityManagerFactory factory = null;
 			Date date = em.find(Date.class, year); // récupération de l'ann�e
 			em.getTransaction().begin();
 			// utilisation de l'EntityManager
-			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE EXTRACT (YEAR FROM a.date_creation) = ?1", Article.class);
+			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE EXTRACT (YEAR FROM a.date_creation) = ?1 ORDER BY a.date_creation DESC", Article.class);
 			q.setParameter(1, date) ;
 			return q.getResultList();
 		} finally {
@@ -169,7 +169,7 @@ private EntityManagerFactory factory = null;
 				Date date = em.find(Date.class, month); // récupération du mois
 				em.getTransaction().begin();
 				// utilisation de l'EntityManager
-				TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE EXTRACT (MONTH FROM a.date_creation) = ?1", Article.class);
+				TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE EXTRACT (MONTH FROM a.date_creation) = ?1 ORDER BY a.date_creation DESC", Article.class);
 				q.setParameter(1, date) ;
 				return q.getResultList();
 			} finally {

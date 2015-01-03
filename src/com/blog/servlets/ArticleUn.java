@@ -62,14 +62,8 @@ public class ArticleUn extends HttpServlet {
 				Categorie cat = article.getCategorie();
 				request.setAttribute("categorie", cat.getNom());
 				
-				DateTime datetime = new DateTime(article.getDateCreation());
-				int day = datetime.getDayOfWeek();
-				int month = datetime.getMonthOfYear();
-				int year = datetime.getYear();
 				
-				request.setAttribute("day", day);
-				request.setAttribute("month", month);
-				request.setAttribute("year", year);
+				request.setAttribute("date", article.getDateCreation());
 				
 				String image = article.getImage();
 				String message_img = "";
