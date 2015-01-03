@@ -34,8 +34,7 @@
 <div class="">
 	<div class="box">
 		<div class="col-lg-12">
-
-			<c:forEach items="${requestScope.list_article}" var="article" begin="0" end="4">
+			<c:forEach items="${requestScope.list_article}" var="article">
             <div class="col-lg-12 text-center">
             
             
@@ -51,18 +50,18 @@
             </div>
         </c:forEach>
         
-        
-        
-        <div class="col-lg-12 text-center">
-			<ul class="pager">
-				<li class="previous"><a href="#">&larr; <fmt:message key="nav.older" /></a></li>
-				<li class="next"><a href="#"><fmt:message key="nav.newer" /> &rarr;</a></li>
-			</ul>
-		</div>
+       
 	</div>
 </div>
 
 </div>
+
+<script type="text/javascript">
+/*function AfficherPlus()
+{
+	${end} += 4;	
+}*/
+</script>
 
 
 <%@ include file="_footer.jsp"%>
