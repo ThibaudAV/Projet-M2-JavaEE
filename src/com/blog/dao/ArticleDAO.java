@@ -142,14 +142,14 @@ private EntityManagerFactory factory = null;
 	}
 	
 	// Fonction qui récupère la liste des articles par ann�es de publication
-	/*public List<Article> findArticlesByYear(int year) {
+	public List<Article> findArticlesByYear(int year) {
 		EntityManager em = null;
 		try {
 			em = factory.createEntityManager();
 			Date date = em.find(Date.class, year); // récupération de l'ann�e
 			em.getTransaction().begin();
 			// utilisation de l'EntityManager
-			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.date_creation = ?1", Article.class);
+			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE EXTRACT (YEAR FROM a.date_creation) = ?1", Article.class);
 			q.setParameter(1, date) ;
 			return q.getResultList();
 		} finally {
@@ -158,18 +158,18 @@ private EntityManagerFactory factory = null;
 				em.close();
 			}
 		}
-	} */
+	} 
 	
 	
 	// Fonction qui récupère la liste des articles par mois de publication
-		/*public List<Article> findArticlesByYear(int month) {
+		public List<Article> findArticlesByMonth(int month) {
 			EntityManager em = null;
 			try {
 				em = factory.createEntityManager();
-				Date date = em.find(Date.class, mois); // récupération du mois
+				Date date = em.find(Date.class, month); // récupération du mois
 				em.getTransaction().begin();
 				// utilisation de l'EntityManager
-				TypedQuery<Article> q = em.createQuery("SELECT EXTRACT MONTH FROM Article a WHERE a.date_creation = ?1", Article.class);
+				TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE EXTRACT (MONTH FROM a.date_creation) = ?1", Article.class);
 				q.setParameter(1, date) ;
 				return q.getResultList();
 			} finally {
@@ -178,5 +178,5 @@ private EntityManagerFactory factory = null;
 					em.close();
 				}
 			}
-		} */
+		} 
 }

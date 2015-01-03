@@ -34,11 +34,11 @@
 <div class="">
 	<div class="box">
 		<div class="col-lg-12">
-             <hr>
-             <h1 class="intro-text text-center">${requestScope.catname}
-             </h1>
-             <hr>
-         </div>
+              <hr>
+              <h1 class="intro-text text-center">${requestScope.catname}
+              </h1>
+              <hr>
+          </div>
 
 			<c:forEach items="${requestScope.liste_bycat}" var="article" begin="0" end="4">
             <div class="col-lg-12 text-center">
