@@ -19,7 +19,10 @@
                         
                         <small><fmt:formatDate value="${requestScope.date}" pattern="dd MMMMMMMMMMMM yyyy"/></small>
                     </h2>
-                    <p>${requestScope.corps}</p>
+                     <p class="text-justify">
+				<% pageContext.setAttribute("newLineChar", "\n"); %>
+				${fn:replace(requestScope.corps, newLineChar, "<br>")}
+                </p>
                     <hr>
                     <fmt:message key='article.written' /> <img src="${pageContext.request.contextPath}/static/img/avatar/${auteur.getAvatar()}" class="avatar img-circle"
 							alt="avatar" width="20px" height="20px"/> ${requestScope.pseudo } <br>
