@@ -44,11 +44,11 @@ public class Articles_by extends HttpServlet {
 		
 		List<Categorie> catlist = daoCat.findAllCategories();
 		List<Article> list = daoArt.findArticlesByCategorie(id_cat);
-		List<Article> list2 = daoArt.findArticlesByMonth(12);
-		for(Article a : list2)
+		//List<Article> list2 = daoArt.findArticlesByMonth(12);
+		/*for(Article a : list2)
 		{
 			System.out.println(a.getTitre() + a.getCategorie());
-		}
+		}*/
 
 		request.setAttribute("catname", catname);
 		

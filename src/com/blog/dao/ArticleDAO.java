@@ -93,7 +93,7 @@ private EntityManagerFactory factory = null;
 	      em = factory.createEntityManager();
 	      em.getTransaction().begin();
 	      // utilisation de l'EntityManager
-	      TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a", Article.class);
+	      TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a ORDER BY a.date_creation DESC", Article.class);
 	      return q.getResultList();
 	   } finally {
 	      if (em != null) {
@@ -111,7 +111,7 @@ private EntityManagerFactory factory = null;
 			Categorie cat = em.find(Categorie.class, id_cat); // récupération de la catégorie
 			em.getTransaction().begin();
 			// utilisation de l'EntityManager
-			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.categorie = ?1", Article.class);
+			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.categorie = ?1 ORDER BY a.date_creation DESC", Article.class);
 			q.setParameter(1, cat) ;
 			return q.getResultList();
 		} finally {
@@ -130,7 +130,7 @@ private EntityManagerFactory factory = null;
 			Utilisateur auteur = em.find(Utilisateur.class, id_auteur); // récupération de l'utilisateur qui est l'auteur
 			em.getTransaction().begin();
 			// utilisation de l'EntityManager
-			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.auteur = ?1", Article.class);
+			TypedQuery<Article> q = em.createQuery("SELECT a FROM Article a WHERE a.auteur = ?1 ORDER BY a.date_creation DESC", Article.class);
 			q.setParameter(1, auteur) ;
 			return q.getResultList();
 		} finally {
@@ -142,7 +142,7 @@ private EntityManagerFactory factory = null;
 	}
 	
 	// Fonction qui récupère la liste des articles par ann�es de publication
-	public List<Article> findArticlesByYear(int year) {
+	/*public List<Article> findArticlesByYear(int year) {
 		EntityManager em = null;
 		try {
 			em = factory.createEntityManager();
@@ -178,5 +178,5 @@ private EntityManagerFactory factory = null;
 					em.close();
 				}
 			}
-		} 
+		}*/ 
 }
