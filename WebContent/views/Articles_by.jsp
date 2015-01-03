@@ -39,35 +39,24 @@
               <hr>
           </div>
 
-			<c:forEach items="${requestScope.liste_bycat}" var="article" begin="0" end="4">
+			<c:forEach items="${requestScope.liste_bycat}" var="article">
             <div class="col-lg-12 text-center">
             
             
             	<c:if test="${!empty article.image }">
                 <img class="img-responsive img-border img-full"
-<<<<<<< HEAD
-                    src="${pageContext.request.contextPath}${article.image}" alt=""></c:if>
+                    src="${pageContext.request.contextPath}/static/img/articles/${article.image}" alt=""></c:if>
                  <h2>${article.titre} <br> 
 					<small><fmt:formatDate value="${article.getDateCreation()}" pattern="dd MMMMMMMMMMMM yyyy"/></small>
                  </h2>
-=======
-                    src="${pageContext.request.contextPath}/static/img/articles/${article.image}" alt=""></c:if>
-                 <h2>${article.titre} <br></h2>
->>>>>>> origin/master
+
+  
                 <p>${fn:substring(article.corps,0,200)} ...</p>
                 <a href="Article?id=${article.id}" class="btn btn-default btn-lg"><fmt:message key="article.readmore" /></a>
                 <hr>
             </div>
         </c:forEach>
-        
-        
-        
-        <div class="col-lg-12 text-center">
-			<ul class="pager">
-				<li class="previous"><a href="#">&larr; <fmt:message key="nav.older" /></a></li>
-				<li class="next"><a href="#"><fmt:message key="nav.newer" /> &rarr;</a></li>
-			</ul>
-		</div>
+
 </div>
 
 </div>
