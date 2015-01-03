@@ -120,33 +120,19 @@ public class Article_create extends HttpServlet {
                 		
             			System.out.println("FieldName : "+item.getFieldName());
             			if(item.getFieldName().equals(CHAMP_TITRE)){
-            				// R√©cup√©ration du contenu du champ titre de l'article 
-<<<<<<< HEAD
-                			titre = item.getString("UTF-8");
-=======
+            				// RÈcupÈration du contenu du champ titre de l'article 
                 			titre = enUTF8;
->>>>>>> origin/master
                 			
             			}
             			if(item.getFieldName().equals(CHAMP_CATEGORIE)){
-            				// R√©cup√©ration du contenu du champ cat√©gorie
-<<<<<<< HEAD
-            				categorie = item.getString("UTF-8");
-                		    //System.out.println("Cat : "+categorie);
-            			}
-            			if(item.getFieldName().equals(CHAMP_CORPS)){
-            				// R√©cup√©ration du contenu du champ corps 
-            				corps = item.getString("UTF-8");
-                		    //System.out.println("Corps : "+corps);
-=======
+            				// RÈcupÈration du contenu du champ catÈgorie
             				categorie = enUTF8;
                 		    System.out.println("Cat : "+categorie);
             			}
             			if(item.getFieldName().equals(CHAMP_CORPS)){
-            				// R√©cup√©ration du contenu du champ corps 
+            				// RÈcupÈration du contenu du champ corps 
             				corps = enUTF8;
                 		    System.out.println("Corps : "+corps);
->>>>>>> origin/master
             			}
             			
             		}
