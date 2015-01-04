@@ -19,6 +19,7 @@
 		aria-expanded="false"><fmt:message key="general.archive" /><span class="caret"></span></a>
 		<ul class="dropdown-menu" role="menu">
 			<li role="presentation" class="dropdown-header">2015</li>
+			<li><a href="Articles_byDate?mois=2"><fmt:message key="months.february" /></a></li> 
 			<li><a href="Articles_byDate?mois=1"><fmt:message key="months.january" /></a></li> 
 			<li class="divider"></li>
 			<li><a href="Articles_byDate?annee=2014">2014</a></li>
@@ -59,8 +60,6 @@
 
 			<c:forEach items="${requestScope.liste_by}" var="article">
             <div class="col-lg-12 text-center">
-            
-            
             	<c:if test="${!empty article.image }">
                 <img class="img-responsive img-border img-full"
                     src="${pageContext.request.contextPath}/static/img/articles/${article.image}" alt=""></c:if>
