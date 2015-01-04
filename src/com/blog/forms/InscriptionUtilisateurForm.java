@@ -121,7 +121,7 @@ public final class InscriptionUtilisateurForm {
     private void validationPseudo( String pseudo ) throws Exception {
         if ( pseudo != null ) {
             if ( pseudo.length() < 2 ) {
-                throw new Exception( "Le pseudo doit contenir au moins 2 caractères." );
+                throw new Exception( "pseudodoisavoir2caratere" );
             }
             /* Si le pseudo n'existe pas deja*/
             if (utilisateurDAO.isPseudoExist(pseudo) == true) {

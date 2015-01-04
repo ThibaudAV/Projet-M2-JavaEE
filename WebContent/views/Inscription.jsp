@@ -16,7 +16,11 @@
 					<input type="text" name="pseudoUser" id="pseudo"
 						class="form-control input-lg" placeholder="Pseudo" tabindex="3"
 						value="<c:out value="${utilisateur.pseudo}"/>"> <span
-						class="erreur">${form.erreurs['pseudoUser']}</span>
+						class="erreur">
+							<c:if test="${not empty form.erreurs['pseudoUser']}">
+								<fmt:message key="register.${form.erreurs['pseudoUser']}" />
+							</c:if>
+						</span>
 				</div>
 				<div class="form-group">
 					<input type="email" name="emailUser" id="email"
