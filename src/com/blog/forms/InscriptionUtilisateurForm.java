@@ -83,9 +83,9 @@ public final class InscriptionUtilisateurForm {
         if ( erreurs.isEmpty() ) {
         	/* On créé l'utilisateur */
         	utilisateurDAO.createUtilisateur(utilisateur);
-            resultat = "Succès de la création du client.";
+            resultat = "succescreaclient";
         } else {
-            resultat = "Échec de la création du client.";
+            resultat = "echeccreaclient";
         }
 
         return utilisateur;
@@ -109,9 +109,9 @@ public final class InscriptionUtilisateurForm {
         if ( erreurs.isEmpty() ) {
         	/* On créé l'utilisateur */
         	utilisateurDAO.updateUtilisateur(user.getId(), email, signature);
-            resultat = "Succès de la création du client.";
+            resultat = "succescreaclient";
         } else {
-            resultat = "Échec de la création du client.";
+            resultat = "echeccreaclient";
         }
     	
         return user;
@@ -121,23 +121,23 @@ public final class InscriptionUtilisateurForm {
     private void validationPseudo( String pseudo ) throws Exception {
         if ( pseudo != null ) {
             if ( pseudo.length() < 2 ) {
-                throw new Exception( "pseudodoisavoir2caratere" );
+                throw new Exception( "pseudodoitavoir2carateres" );
             }
             /* Si le pseudo n'existe pas deja*/
             if (utilisateurDAO.isPseudoExist(pseudo) == true) {
-            	throw new Exception( "Le pseudo est deja utilisé par un utilisateur" );
+            	throw new Exception( "pseudoutilise" );
             }
         } else {
-            throw new Exception( "Merci d'entrer un pseudo d'utilisateur." );
+            throw new Exception( "pseudoempty" );
         }
     }
 
     private void validationPassword( String password , String passwordConfirm) throws Exception {
         if ( password == null || password.length() < 2 || passwordConfirm == null) {
-            throw new Exception( "Le mot de passe d'utilisateur doit contenir au moins 2 caractères." );
+            throw new Exception( "passcaramini" );
         } else {
         	if(!password.equals(passwordConfirm)) {
-                throw new Exception( passwordConfirm+"Le mot de passe de confirmation est différent du mot de passe saisi."+password );
+                throw new Exception( passwordConfirm+"passdiff"+password );
         	}
         }
     }
@@ -146,16 +146,16 @@ public final class InscriptionUtilisateurForm {
     private void validationEmail( String email ) throws Exception {
         if ( email != null ) {
             if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-                throw new Exception( "Merci de saisir une adresse mail valide." );
+                throw new Exception( "mailvalide" );
             }
         } else {
-            throw new Exception( "Merci de saisir une adresse mail valide." );
+            throw new Exception( "mailvalide" );
         }
     }
 
     private void validationT_and_c( String t_and_c ) throws Exception {
         if ( t_and_c == null ) {
-            throw new Exception( "Merci de lire et d'accepter les conditions d'utilisation." );
+            throw new Exception( "conditions" );
         }
     }
     /*
