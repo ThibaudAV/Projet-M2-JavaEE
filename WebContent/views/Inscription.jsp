@@ -106,7 +106,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-hidden="true">×</button>
-				<h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+				<h4 class="modal-title" id="myModalLabel"><fmt:message key="register.termlink" /></h4>
 			</div>
 			<div class="modal-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -139,8 +139,7 @@
 					porro delectus quidem dolorem ad.</p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">I
-					Agree</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal"><fmt:message key="register.agree" /></button>
 			</div>
 		</div>
 		<!-- /.modal-content -->
