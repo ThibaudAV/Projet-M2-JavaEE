@@ -23,7 +23,7 @@ public class Inscription extends HttpServlet {
     public static final String ATT_UTILISATEUR = "utilisateur";
     public static final String ATT_FORM   = "form";
     
-    public static final String VUE_SUCCES   = "/Connexion";
+    public static final String VUE_SUCCES   = "/";
     public static final String VUE_FORM     = "/views/Inscription.jsp";
     
     
@@ -66,10 +66,13 @@ public class Inscription extends HttpServlet {
         if ( form.getErreurs().isEmpty() ) {
         	
         	/* Connexion de l'utilisateur */
-        	
-        	
+        	HttpSession session = request.getSession();
+        	String password=request.getParameter("passwordUser");  
+            Utilisateur user = utilisateurDAO.getUtilisateurByPseudo(utilisateur.getPseudo(),password);
+    		session.setAttribute("user",user);
+            String contextPath = request.getContextPath();
+    		response.sendRedirect(contextPath + VUE_SUCCES);
             /* Si aucune erreur, alors affichage de la fiche récapitulative */
-            this.getServletContext().getRequestDispatcher( VUE_SUCCES ).forward( request, response );
         } else {
         	
             /* Sinon, ré-affichage du formulaire de création avec les erreurs */
@@ -78,7 +81,8 @@ public class Inscription extends HttpServlet {
             
         }
 		
-		
+
+        
 		
 		
 	}

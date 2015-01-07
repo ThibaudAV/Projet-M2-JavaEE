@@ -20,7 +20,7 @@
 						value="<c:out value="${utilisateur.pseudo}"/>"> <span
 						class="erreur"> <c:if
 							test="${not empty form.erreurs['pseudoUser']}">
-							<fmt:message key="register.${form.erreurs['pseudoUser']}" />
+							<p class="text-danger"><fmt:message key="register.${form.erreurs['pseudoUser']}" /></p>
 						</c:if>
 					</span>
 				</div>
@@ -31,7 +31,7 @@
 						value="<c:out value="${utilisateur.email}"/>" tabindex="4">
 					<span class="erreur"> <c:if
 							test="${not empty form.erreurs['emailUser']}">
-							<fmt:message key="register.${form.erreurs['emailUser']}" />
+							<p class="text-danger"><fmt:message key="register.${form.erreurs['emailUser']}" /></p>
 						</c:if>
 					</span>
 				</div>
@@ -54,7 +54,7 @@
 					</div>
 					<span class="erreur"><c:if
 							test="${not empty form.erreurs['passwordUser']}">
-							<fmt:message key="register.${form.erreurs['passwordUser']}" />
+							<p class="text-danger"><fmt:message key="register.${form.erreurs['passwordUser']}" /></p>
 						</c:if></span>
 				</div>
 				<div class="row">
@@ -77,7 +77,7 @@
 					</div>
 					<span class="erreur"><c:if
 							test="${not empty form.erreurs['t_and_c']}">
-							<fmt:message key="register.${form.erreurs['t_and_c']}" />
+							<p class="text-danger"><fmt:message key="register.${form.erreurs['t_and_c']}" /></p>
 						</c:if></span>
 				</div>
 

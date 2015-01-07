@@ -93,7 +93,15 @@
                     		<c:when test="${!empty sessionScope.user}">	
 			                    <li class="dropdown">
 			          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-			          					<img src="${pageContext.request.contextPath}/static/img/avatar/${sessionScope.user.getAvatar()}" class="avatar img-circle" alt="avatar" width="30px" height="30px" /> <fmt:message key="general.signin" /> ${sessionScope.user.pseudo}<span class="caret"></span>
+			          					<c:choose> 
+			          						<c:when test="${empty sessionScope.user.getAvatar()}">
+			          							<span class="glyphicon glyphicon-user" aria-hidden="true">
+			          						</c:when>
+											<c:otherwise>
+												<img src="${pageContext.request.contextPath}/static/img/avatar/${sessionScope.user.getAvatar()}" class="avatar img-circle" alt="avatar" width="30px" height="30px" />
+											</c:otherwise>
+										</c:choose> 
+			          					 ${sessionScope.user.pseudo}<span class="caret"></span>
 			          				</a>
 						          <ul class="dropdown-menu" role="menu">
 						          
