@@ -6,9 +6,11 @@
 	<div class="box">
 		<div
 			class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-			<form role="form" method="post" action="<c:url value="/Inscription"/>">
+			<form role="form" method="post"
+				action="<c:url value="/Inscription"/>">
 				<h2>
-					<fmt:message key="register.title" /> <small><fmt:message key="register.subtitle" /></small>
+					<fmt:message key="register.title" />
+					<small><fmt:message key="register.subtitle" /></small>
 				</h2>
 				<hr>
 
@@ -16,23 +18,29 @@
 					<input type="text" name="pseudoUser" id="pseudo"
 						class="form-control input-lg" placeholder="Pseudo" tabindex="3"
 						value="<c:out value="${utilisateur.pseudo}"/>"> <span
-						class="erreur">
-							<c:if test="${not empty form.erreurs['pseudoUser']}">
-								<fmt:message key="register.${form.erreurs['pseudoUser']}" />
-							</c:if>
-						</span>
+						class="erreur"> <c:if
+							test="${not empty form.erreurs['pseudoUser']}">
+							<fmt:message key="register.${form.erreurs['pseudoUser']}" />
+						</c:if>
+					</span>
 				</div>
 				<div class="form-group">
 					<input type="email" name="emailUser" id="email"
-						class="form-control input-lg" placeholder="<fmt:message key="register.mail" />"
+						class="form-control input-lg"
+						placeholder="<fmt:message key="register.mail" />"
 						value="<c:out value="${utilisateur.email}"/>" tabindex="4">
-					<span class="erreur">${form.erreurs['emailUser']}</span>
+					<span class="erreur"> <c:if
+							test="${not empty form.erreurs['emailUser']}">
+							<fmt:message key="register.${form.erreurs['emailUser']}" />
+						</c:if>
+					</span>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div class="form-group">
 							<input type="password" name="passwordUser" id="password"
-								class="form-control input-lg" placeholder="<fmt:message key="register.password" />"
+								class="form-control input-lg"
+								placeholder="<fmt:message key="register.password" />"
 								tabindex="5" value="">
 						</div>
 					</div>
@@ -40,35 +48,50 @@
 						<div class="form-group">
 							<input type="password" name="passwordUser_confirmation"
 								id="password_confirmation" class="form-control input-lg"
-								placeholder="<fmt:message key="register.passwordconf" />" tabindex="6"
-								value="">
+								placeholder="<fmt:message key="register.passwordconf" />"
+								tabindex="6" value="">
 						</div>
 					</div>
-					<span class="erreur">${form.erreurs['passwordUser']}</span>
+					<span class="erreur"><c:if
+							test="${not empty form.erreurs['passwordUser']}">
+							<fmt:message key="register.${form.erreurs['passwordUser']}" />
+						</c:if></span>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 col-sm-3 col-md-3">
 						<span class="button-checkbox">
-							<button type="button" class="btn" data-color="info" tabindex="7"> <fmt:message key="register.agree" /></button> <input type="checkbox" name="t_and_c" id="t_and_c"
+							<button type="button" class="btn" data-color="info" tabindex="7">
+								<fmt:message key="register.agree" />
+							</button> <input type="checkbox" name="t_and_c" id="t_and_c"
 							class="hidden" value="1">
 						</span>
 					</div>
 					<div class="col-xs-8 col-sm-9 col-md-9">
-						<fmt:message key="register.term1" /> <strong class="label label-primary"><fmt:message key="general.register" /></strong>,
-						<fmt:message key="register.term2" /> <a href="#" data-toggle="modal"
-							data-target="#t_and_c_m"><fmt:message key="register.termlink" /></a> <fmt:message key="register.term3" />
+						<fmt:message key="register.term1" />
+						<strong class="label label-primary"><fmt:message
+								key="general.register" /></strong>,
+						<fmt:message key="register.term2" />
+						<a href="#" data-toggle="modal" data-target="#t_and_c_m"><fmt:message
+								key="register.termlink" /></a>
+						<fmt:message key="register.term3" />
 					</div>
-					<span class="erreur">${form.erreurs['t_and_c']}</span>
+					<span class="erreur"><c:if
+							test="${not empty form.erreurs['t_and_c']}">
+							<fmt:message key="register.${form.erreurs['t_and_c']}" />
+						</c:if></span>
 				</div>
 
 				<hr>
 				<div class="row">
 					<div class="col-xs-12 col-md-6">
-						<input type="submit" value="<fmt:message key="general.register" />"
+						<input type="submit"
+							value="<fmt:message key="general.register" />"
 							class="btn btn-primary btn-block btn-lg" tabindex="7">
 					</div>
 					<div class="col-xs-12 col-md-6">
-						<a href="<c:url value="/Connexion"/>" class="btn btn-success btn-block btn-lg"><fmt:message key="general.signin" /></a>
+						<a href="<c:url value="/Connexion"/>"
+							class="btn btn-success btn-block btn-lg"><fmt:message
+								key="general.signin" /></a>
 					</div>
 				</div>
 			</form>
@@ -127,7 +150,6 @@
 <!-- /.modal -->
 
 <script>
-
 	$(function() {
 		$('.button-checkbox')
 				.each(
